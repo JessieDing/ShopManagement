@@ -5,14 +5,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Sale {
-	String goods_no;// 商品编号
-	String goods_name;// 商品名称
-	int sale_amt;// 销售数量
-	double price;// 销售价格
-	Date sale_date;// 销售日期
+	private String goods_no;// 商品编号
+	private String goods_name;// 商品名称
+	private int sale_amt;// 销售数量
+	private double price;// 销售价格
+	private Date sale_date;// 销售日期
 
 	public Sale() {
 		super();
+	}
+
+	public Sale(String goods_no, String goods_name, int sale_amt, double price, Date sale_date) {
+		this.goods_no = goods_no;
+		this.goods_name = goods_name;
+		this.sale_amt = sale_amt;
+		this.price = price;
+		this.sale_date = sale_date;
 	}
 
 	public int addSale() {

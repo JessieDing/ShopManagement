@@ -2,12 +2,12 @@ package busi;
 
 public class SalesReport {
 
-	String goodsNo;
-	String goodsName;
-	double purchasePrice;
-	double salePrice;
-	int saleAmount;
-	double profits;
+	private String goodsNo;
+	private String goodsName;
+	private double purchasePrice;
+	private double salePrice;
+	private int saleAmount;
+	private double profits;
 
 	public SalesReport() {
 		super();
@@ -50,7 +50,7 @@ public class SalesReport {
 		return purchasePrice;
 	}
 
-	public void setPurchasePrice(int purchasePrice) {
+	public void setPurchasePrice(double purchasePrice) {
 		this.purchasePrice = purchasePrice;
 	}
 
@@ -58,7 +58,7 @@ public class SalesReport {
 		return salePrice;
 	}
 
-	public void setSalePrice(int salePrice) {
+	public void setSalePrice(double salePrice) {
 		this.salePrice = salePrice;
 	}
 

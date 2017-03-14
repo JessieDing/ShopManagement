@@ -1,10 +1,10 @@
 package busi;
 
 public class Goods {
-	String goods_no;// 商品编号
-	String goods_name;// 商品名称
-	String goods_unit;// 商品单位
-	String goods_status;// 商品状态
+	private String goods_no;// 商品编号
+	private String goods_name;// 商品名称
+	private String goods_unit;// 商品单位
+	private String goods_status;// 商品状态
 
 	public Goods() {
 		super();

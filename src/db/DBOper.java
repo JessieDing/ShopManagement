@@ -3,11 +3,7 @@ package db;
 import java.util.ArrayList;
 import java.util.List;
 
-import busi.Goods;
-import busi.Inventory;
-import busi.Provider;
-import busi.Purchase;
-import busi.Sale;
+import busi.*;
 
 public class DBOper {
 	// List是一个接口，Goods是泛型
@@ -16,6 +12,7 @@ public class DBOper {
 	List<Sale> sale_list;// 存放销售信息的列表
 	List<Purchase> purchase_list;
 	List<Inventory> inventory_list;
+	List<SalesReport>salesReports;
 
 	public DBOper() {
 		goods_list = new ArrayList<Goods>();
