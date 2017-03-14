@@ -54,6 +54,7 @@ public class ShopManagementMain {
 				trans.setDbhelper(dbhelper);
 				trans.prtPrompt();// 打印交易提示信息
 				if (trans.getInput() != 0) {// 读取输入的数据
+					trans.prtResult();
 					System.out.println("获取输入数据失败");
 				} else {
 					if (trans.doTrans() != 0) {
@@ -80,7 +81,7 @@ public class ShopManagementMain {
 		System.out.println("\t3-查询商品信息\t4-新增供货商");
 		System.out.println("\t5-修改供货商信息\t6-查询供货商信息");
 		System.out.println("\t7-采购信息录入\t8-销售信息录入");
-		System.out.println("\t9-库存查询\t0-库存修改");
+		System.out.println("\t9-库存修改\t0-库存查询");
 		System.out.println("********************************************");
 		System.out.println("请输入您要进行的操作,退出请输入q/Q：");
 		System.out.println();

@@ -1,5 +1,7 @@
 package busi;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Purchase {
@@ -89,8 +91,10 @@ public class Purchase {
 
 	@Override
 	public String toString() {
+		DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String purchaseDate = date.format(purchase_date);
 		return "Purchase [goods_no=" + goods_no + ", goods_name=" + goods_name + ", goods_count=" + purchase_amt
-				+ ", goods_unit=" + goods_unit + ", goods_price=" + purchase_price + ", purchase_date=" + purchase_date
+				+ ", goods_unit=" + goods_unit + ", goods_price=" + purchase_price + ", purchase_date=" + purchaseDate
 				+ ", prvd=" + prvd + "]";
 	}
 

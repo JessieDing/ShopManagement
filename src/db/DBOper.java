@@ -26,6 +26,25 @@ public class DBOper {
 
 	}
 
+	public void addInventoryGoodsCount(String goodsNo, int addAmoumt) {
+		for (Inventory i : inventory_list) {
+			if (i.getGoods_no().equals(goodsNo)) {
+				i.setGoods_count(addAmoumt);// addAmount =
+											// inventoryAmt+purchaseAmt
+				break;
+			}
+		}
+	}
+
+	public void deleteInventoryGoodsCount(String goodsNo, int changeAmount) {
+		for (Inventory i : inventory_list) {
+			if (i.getGoods_no().equals(goodsNo)) {
+				i.setGoods_count(changeAmount);
+				break;
+			}
+		}
+	}
+
 	public Goods exactFindGoods(String no) {
 		for (Goods g : goods_list) {
 			if (g.getGoods_no().equals(no)) {
@@ -39,6 +58,24 @@ public class DBOper {
 		for (Provider p : provider_list) {
 			if (p.getProvider_no().equals(no)) {
 				return p;
+			}
+		}
+		return null;
+	}
+
+	public Purchase exactFindPurchase(String no) {
+		for (Purchase p : purchase_list) {
+			if (p.getGoods_no().equals(no)) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+	public Sale exactFindSale(String no) {
+		for (Sale s : sale_list) {
+			if (s.getGoods_no().equals(no)) {
+				return s;
 			}
 		}
 		return null;
@@ -137,17 +174,6 @@ public class DBOper {
 		}
 		return 0;
 	}
-
-	// public int delInventory(Inventory inventory) {
-	// for (int i = 0; i < inventory_list.size(); i++) {
-	// String inventory_no = inventory_list.get(i).getGoods_no();// 当前对象商品编号
-	// String del_inventory_no = inventory.getGoods_no();// 要删除的商品编号
-	// if (inventory_no.equals(del_inventory_no)) {
-	// inventory_list.remove(i);
-	// }
-	// }
-	// return 0;
-	// }
 
 	public int prtAllGoods() {
 		for (Goods g : goods_list) {

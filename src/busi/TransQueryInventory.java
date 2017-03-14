@@ -54,13 +54,14 @@ public class TransQueryInventory extends TransAbs {
 				setTrans_result("没有查到相关信息！");
 				return -1;
 			}
-		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
+		} else if (query_type.equals("2")) {// 模糊查询
 
 			if (dbhelper.fuzFindInventory(goods_name) != null) {
 				List<Inventory> list = dbhelper.fuzFindInventory(goods_name);
 				for (Inventory i : list) {
 					System.out.println(i.toString());
 				}
+				setTrans_result("模糊查询完成");
 				return 0;
 			} else {
 				setTrans_result("没有查到相关信息！");

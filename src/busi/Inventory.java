@@ -1,11 +1,13 @@
 package busi;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Inventory {
 	String goods_no;// 商品编号
 	String goods_name;// 商品名称
-	int goods_count;// 商品数量
+	int goods_count = 0;// 商品数量
 	String goods_unit;// 商品单位
 	double goods_price;// 进货价格
 	Date purchase_date;// 进货日期
@@ -75,8 +77,10 @@ public class Inventory {
 
 	@Override
 	public String toString() {
+		DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String purchaseDate = date.format(purchase_date);
 		return "Inventory [goods_no=" + goods_no + ", goods_name=" + goods_name + ", goods_count=" + goods_count
-				+ ", goods_unit=" + goods_unit + ", goods_price=" + goods_price + ", purchase_date=" + purchase_date
+				+ ", goods_unit=" + goods_unit + ", goods_price=" + goods_price + ", purchase_date=" + purchaseDate
 				+ "]";
 	}
 
