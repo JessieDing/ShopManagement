@@ -31,6 +31,19 @@ public class TransAddGoods extends TransAbs {
 			setTrans_result("获取商品单位错误");
 			return -1;
 		}
+
+		// 判断商品编号是否重复
+		if (dbhelper.exactFindGoods(goods_no) != null) {
+			setTrans_result("商品编号已存在");
+			return -1;
+		}
+
+		DataValidate validator = new DataValidate();
+		if (!validator.goodNoValidate(goods_no)) {
+			setTrans_result("商品编号不合法");
+			return -1;
+		}
+
 		System.out.print("goods_no[" + goods_no + "],");
 		System.out.print("goods_name[" + goods_name + "],");
 		System.out.print("goods_unit[" + goods_unit + "]");

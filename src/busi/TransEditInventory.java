@@ -21,7 +21,6 @@ public class TransEditInventory extends TransAbs {
 
 	public void prtPrompt() {
 		System.out.println("库存信息修改|请输入以下信息：");
-		System.out.println("库存信息修改|请输入以下信息：");
 		System.out.println("@editType @goods_no @goods_name");
 		System.out.println("editType： 0-减少库存 1-增加库存  ");
 
@@ -53,12 +52,14 @@ public class TransEditInventory extends TransAbs {
 
 	public int doTrans() {
 
-		sale = dbhelper.exactFindSale(goods_no);
-		purchase = dbhelper.exactFindPurchase(goods_no);
-
 		if (dbhelper.exactFindInventory(goods_no) == null) {
+			purchase = dbhelper.exactFindPurchase(goods_no);
 			addInventory(purchase);
-		} else if (sale != null || purchase != null) {
+			setTrans_result("增加库存成功");
+
+		} else if (dbhelper.exactFindSale(goods_no) != null) {
+			sale = dbhelper.exactFindSale(goods_no);
+
 			inventory = dbhelper.exactFindInventory(goods_no);
 
 			if (editType.equals("0")) {

@@ -13,7 +13,7 @@ public class DBOper {
 	// List是一个接口，Goods是泛型
 	List<Goods> goods_list;// 存放商品的列表
 	List<Provider> provider_list;// 存放供货商的列表
-	List<Sale> sale_list;// 存放采购信息的列表
+	List<Sale> sale_list;// 存放销售信息的列表
 	List<Purchase> purchase_list;
 	List<Inventory> inventory_list;
 
@@ -151,6 +151,38 @@ public class DBOper {
 
 	public void setInventory_list(List<Inventory> inventory_list) {
 		this.inventory_list = inventory_list;
+	}
+
+	public List<Goods> getGoods_list() {
+		return goods_list;
+	}
+
+	public void setGoods_list(List<Goods> goods_list) {
+		this.goods_list = goods_list;
+	}
+
+	public List<Provider> getProvider_list() {
+		return provider_list;
+	}
+
+	public void setProvider_list(List<Provider> provider_list) {
+		this.provider_list = provider_list;
+	}
+
+	public List<Sale> getSale_list() {
+		return sale_list;
+	}
+
+	public void setSale_list(List<Sale> sale_list) {
+		this.sale_list = sale_list;
+	}
+
+	public List<Purchase> getPurchase_list() {
+		return purchase_list;
+	}
+
+	public void setPurchase_list(List<Purchase> purchase_list) {
+		this.purchase_list = purchase_list;
 	}
 
 	public int delGoods(Goods g) {

@@ -11,32 +11,31 @@ import db.DBOper;
 public class ShopManagementMain {
 
 	public static void main(String[] args) {
+
 		// 1.首先打印菜单主界面
 		// 2.客户选择交易后，进入各个交易对应的操作/提示界面
 		// 3.客户完成输入后，从界面读取客户输入的数据
 		// 4.执行该交易，并且打印执行结果
 		Scanner scan = new Scanner(System.in);
-
 		DBOper dbhelper = new DBOper();// 数据操作对象
 		/* 添加测试数据 */
-		Goods g1 = new Goods("0001", "华为P8", "部", "0");
-		Goods g2 = new Goods("0002", "华为麦芒", "部", "0");
-		Goods g3 = new Goods("0003", "Iphone7", "部", "0");
-		Goods g4 = new Goods("0004", "三星Galaxy", "部", "0");
+		Goods g1 = new Goods("00010001", "华为P8", "部", "0");
+		Goods g2 = new Goods("00020002", "华为麦芒", "部", "0");
+		Goods g3 = new Goods("00030003", "Iphone7", "部", "0");
+		Goods g4 = new Goods("00040004", "三星Galaxy", "部", "0");
 		dbhelper.insertGoods(g1);
 		dbhelper.insertGoods(g2);
 		dbhelper.insertGoods(g3);
 		dbhelper.insertGoods(g4);
 
-		Provider p1 = new Provider("01", "迅捷通讯", "天府三街", "02812345675", "0");
-		Provider p2 = new Provider("02", "迪信通", "天府二街", "02812345676", "0");
-		Provider p3 = new Provider("03", "赛格", "太升南路", "02812345677", "0");
-		Provider p4 = new Provider("04", "新世界", "天府五街", "02812345678", "0");
+		Provider p1 = new Provider("0001", "迅捷通讯", "天府三街", "02811111111", "0");
+		Provider p2 = new Provider("0002", "迪信通", "天府二街", "02822222222", "0");
+		Provider p3 = new Provider("0003", "赛格", "太升南路", "02833333333", "0");
+		Provider p4 = new Provider("0004", "新世界", "天府五街", "02844444444", "0");
 		dbhelper.insertProvider(p1);
 		dbhelper.insertProvider(p2);
 		dbhelper.insertProvider(p3);
 		dbhelper.insertProvider(p4);
-
 		/* 添加测试数据结束 */
 
 		while (true) {
@@ -82,6 +81,7 @@ public class ShopManagementMain {
 		System.out.println("\t5-修改供货商信息\t6-查询供货商信息");
 		System.out.println("\t7-采购信息录入\t8-销售信息录入");
 		System.out.println("\t9-库存修改\t0-库存查询");
+		System.out.println("\tp-打印销售报表\t-");
 		System.out.println("********************************************");
 		System.out.println("请输入您要进行的操作,退出请输入q/Q：");
 		System.out.println();

@@ -37,6 +37,23 @@ public class TransAddPrvd extends TransAbs {
 			return -1;
 		}
 
+		// 判断供应商编号是否重复
+		if (dbhelper.exactFindProvider(provider_no) != null) {
+			setTrans_result("供应商编号已存在！");
+			return -1;
+		}
+
+		DataValidate validator = new DataValidate();
+		if (!validator.providerNoValidate(provider_no)) {
+			setTrans_result("供应商编号不合法");
+			return -1;
+		}
+
+		if (!validator.telNoValidate(provider_tel)) {
+			setTrans_result("电话号码不合法");
+			return -1;
+		}
+
 		System.out.print("provider_no[" + provider_no + "],");
 		System.out.print("provider_name[" + provider_name + "],");
 		System.out.print("provider_addr[" + provider_addr + "]");

@@ -52,6 +52,13 @@ public class TransEditGoods extends TransAbs {
 			setTrans_result("读取商品状态错误");
 			return -1;
 		}
+
+		DataValidate validator = new DataValidate();
+		if (!validator.goodsStatusValidate(goods_status)) {
+			setTrans_result("状态输入不合法");
+			return -1;
+		}
+
 		return 0;
 	}
 
