@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransPrintSalesReport extends TransAbs {
-    SalesReport salesReport;
 
     public static void printSalesReport(SalesReport salesReport) {
         System.out.println();
@@ -25,6 +24,7 @@ public class TransPrintSalesReport extends TransAbs {
     }
 
     public int doTrans() {
+
         List<Sale> sales = dbhelper.getSale_list();
         List<SalesReport> reports = new ArrayList<>();
         for (Sale sale : sales) {
@@ -35,15 +35,15 @@ public class TransPrintSalesReport extends TransAbs {
             report.setSaleAmount(sale.getSale_amt());
             Purchase purchase = dbhelper.exactFindPurchase(sale.getGoods_no());
             report.setPurchasePrice(purchase.getPurchase_price());
-            report.setProfits(report.calcProfits(report.getPurchasePrice(), report.getSalePrice()));
+            report.setProfits(report.calcProfits());
             reports.add(report);
         }
-
+        System.out.println("\t        商品编号\t        商品名称\t        进货价格\t        销售价格\t     销售数量\t      毛利润");
         double totalAmount = 0;
         int totalNumber = 0;
         double totalProfits = 0;
         for (SalesReport report : reports) {
-            System.out.println(report.toString());
+            System.out.println(report.toString());//逐条打印sales
             totalAmount += report.getSalePrice();
             totalNumber += report.getSaleAmount();
             totalProfits += report.getProfits();

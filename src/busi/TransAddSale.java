@@ -13,11 +13,6 @@ public class TransAddSale extends TransAbs {
     Date sale_date;// 销售日期
     SalesReport salesReport;
 
-    // public void deleteInventory(Sale sale) {//删除库存
-    // Inventory inventory = dbhelper.exactFindInventory(sale.getGoods_no());
-    // List inventoryList = dbhelper.getInventory_list();
-    // inventoryList.remove(inventory);
-    // }
 
     public int findGoodsInfo(String no) {
         Inventory inventory = dbhelper.exactFindInventory(no);

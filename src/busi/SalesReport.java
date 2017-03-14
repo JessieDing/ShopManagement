@@ -2,86 +2,86 @@ package busi;
 
 public class SalesReport {
 
-	private String goodsNo;
-	private String goodsName;
-	private double purchasePrice;
-	private double salePrice;
-	private int saleAmount;
-	private double profits;
+    private String goodsNo;
+    private String goodsName;
+    private double purchasePrice;
+    private double salePrice;
+    private int saleAmount;
+    private double profits;
 
-	public SalesReport() {
-		super();
-	}
+    public SalesReport() {
+        super();
+    }
 
-	public SalesReport(String goodsNo, String goodsName, int purchasePrice, int salePrice, int saleAmount,
-			double profits) {
-		super();
-		this.goodsNo = goodsNo;
-		this.goodsName = goodsName;
-		this.purchasePrice = purchasePrice;
-		this.salePrice = salePrice;
-		this.saleAmount = saleAmount;
-		this.profits = profits;
-	}
+    public SalesReport(String goodsNo, String goodsName, int purchasePrice, int salePrice, int saleAmount,
+                       double profits) {
+        super();
+        this.goodsNo = goodsNo;
+        this.goodsName = goodsName;
+        this.purchasePrice = purchasePrice;
+        this.salePrice = salePrice;
+        this.saleAmount = saleAmount;
+        this.profits = profits;
+    }
 
-	public double calcProfits(double purchasePrice, double salePrice) {
-		double profits = 0.00;
-		profits = salePrice - purchasePrice;
-		return profits;
-	}
+    public double calcProfits() {
+        double profits = 0.00;
+        profits = (salePrice - purchasePrice) * (double)saleAmount;
+        return profits;
+    }
 
-	public String getGoodsNo() {
-		return goodsNo;
-	}
+    public String getGoodsNo() {
+        return goodsNo;
+    }
 
-	public void setGoodsNo(String goodsNo) {
-		this.goodsNo = goodsNo;
-	}
+    public void setGoodsNo(String goodsNo) {
+        this.goodsNo = goodsNo;
+    }
 
-	public String getGoodsName() {
-		return goodsName;
-	}
+    public String getGoodsName() {
+        return goodsName;
+    }
 
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
-	}
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
 
-	public double getPurchasePrice() {
-		return purchasePrice;
-	}
+    public double getPurchasePrice() {
+        return purchasePrice;
+    }
 
-	public void setPurchasePrice(double purchasePrice) {
-		this.purchasePrice = purchasePrice;
-	}
+    public void setPurchasePrice(double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
 
-	public double getSalePrice() {
-		return salePrice;
-	}
+    public double getSalePrice() {
+        return salePrice;
+    }
 
-	public void setSalePrice(double salePrice) {
-		this.salePrice = salePrice;
-	}
+    public void setSalePrice(double salePrice) {
+        this.salePrice = salePrice;
+    }
 
-	public int getSaleAmount() {
-		return saleAmount;
-	}
+    public int getSaleAmount() {
+        return saleAmount;
+    }
 
-	public void setSaleAmount(int saleAmount) {
-		this.saleAmount = saleAmount;
-	}
+    public void setSaleAmount(int saleAmount) {
+        this.saleAmount = saleAmount;
+    }
 
-	public double getProfits() {
-		return profits;
-	}
+    public double getProfits() {
+        return profits;
+    }
 
-	public void setProfits(double profits) {
-		this.profits = profits;
-	}
+    public void setProfits(double profits) {
+        this.profits = profits;
+    }
 
-	@Override
-	public String toString() {
-		return "SalesRow [goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", purchasePrice=" + purchasePrice
-				+ ", salePrice=" + salePrice + ", saleAmount=" + saleAmount + ", profits=" + profits + "]";
-	}
+    @Override
+    public String toString() {
+        return "SalesRow [goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", purchasePrice=" + purchasePrice
+                + ", salePrice=" + salePrice + ", saleAmount=" + saleAmount + ", profits=" + profits + "]";
+    }
 
 }

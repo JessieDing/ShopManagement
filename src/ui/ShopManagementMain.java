@@ -76,19 +76,19 @@ public class ShopManagementMain {
         dbhelper.insertProvider(p4);
 
         //采购 测试数据
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        Purchase purchase1 = new Purchase("00010001", "华为P8", 8, "部", 2000, dateFormat.parse("2017-03-17"), "迪信通");
-//        Purchase purchase2 = new Purchase("00020002", "华为麦芒", 6, "部", 1800, dateFormat.parse("2017-03-16"), "迅捷");
-//        Purchase purchase3 = new Purchase("00030003", "Iphone7", 10, "部", 6000, dateFormat.parse("2017-03-15"), "赛德");
-//        dbhelper.insertPurchase(purchase1);
-//        dbhelper.insertPurchase(purchase2);
-//        dbhelper.insertPurchase(purchase3);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Purchase purchase1 = new Purchase("00010001", "华为P8", 8, "部", 2000, dateFormat.parse("2017-03-17"), "迪信通");
+        Purchase purchase2 = new Purchase("00020002", "华为麦芒", 6, "部", 1800, dateFormat.parse("2017-03-16"), "迅捷");
+        Purchase purchase3 = new Purchase("00030003", "Iphone7", 10, "部", 6000, dateFormat.parse("2017-03-15"), "赛德");
+        dbhelper.insertPurchase(purchase1);
+        dbhelper.insertPurchase(purchase2);
+        dbhelper.insertPurchase(purchase3);
 
         //销售 测试数据
-//        Sale sale1 = new Sale("00010001", "华为P8", 6, 3000, dateFormat.parse("2017-03-18"));
-//        Sale sale2 = new Sale("00030003", "Iphone7", 6, 8000, dateFormat.parse("2017-03-19"));
-//        dbhelper.insertSale(sale1);
-//        dbhelper.insertSale(sale2);
+        Sale sale1 = new Sale("00010001", "华为P8", 6, 3000, dateFormat.parse("2017-03-18"));
+        Sale sale2 = new Sale("00030003", "Iphone7", 6, 8000, dateFormat.parse("2017-03-19"));
+        dbhelper.insertSale(sale1);
+        dbhelper.insertSale(sale2);
         /* 添加测试数据结束 */
     }
 
@@ -99,8 +99,7 @@ public class ShopManagementMain {
         System.out.println("\t3-查询商品信息\t4-新增供货商");
         System.out.println("\t5-修改供货商信息\t6-查询供货商信息");
         System.out.println("\t7-采购信息录入\t8-销售信息录入");
-        System.out.println("\t9-库存修改\t0-库存查询");
-        System.out.println("\tp-打印销售报表\t-");
+        System.out.println("\t9-库存查询\t0-打印销售报表");
         System.out.println("********************************************");
         System.out.println("请输入您要进行的操作,退出请输入q/Q：");
         System.out.println();
