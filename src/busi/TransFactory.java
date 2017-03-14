@@ -22,11 +22,9 @@ public class TransFactory {
         } else if (strTrans.equals("8")) {
             trans = new TransAddSale();// 销售信息录入
         } else if (strTrans.equals("9")) {
-            trans = new TransEditInventory();// 修改库存信息
-        } else if (strTrans.equals("0")) {
             trans = new TransQueryInventory();// 查询库存信息
-        } else if (strTrans.equals("p")) {
-            trans = new TransPrintSalesReport();// 查询库存信息
+        } else if (strTrans.equals("0")) {
+            trans = new TransPrintSalesReport();// 打印销售报表
         }
         return trans;
     }

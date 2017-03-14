@@ -79,9 +79,9 @@ public class DBOper {
 	}
 
 	public Inventory exactFindInventory(String no) {
-		for (Inventory i : inventory_list) {
-			if (i.getGoods_no().equals(no)) {
-				return i;
+		for (Inventory inventory : inventory_list) {
+			if (inventory.getGoods_no().equals(no)) {
+				return inventory;
 			}
 		}
 		return null;

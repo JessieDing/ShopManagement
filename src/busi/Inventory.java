@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Inventory {
-	String goods_no;// 商品编号
-	String goods_name;// 商品名称
-	int goods_count = 0;// 商品数量
-	String goods_unit;// 商品单位
-	double goods_price;// 进货价格
-	Date purchase_date;// 进货日期
+	private String goods_no;// 商品编号
+	private String goods_name;// 商品名称
+	private int goods_count = 0;// 商品数量
+	private String goods_unit;// 商品单位
+	private double goods_price;// 进货价格
+	private Date purchase_date;// 进货日期
 
 	public Inventory() {
 		super();
