@@ -5,15 +5,6 @@ import java.util.List;
 
 public class TransPrintSalesReport extends TransAbs {
 
-    public static void printSalesReport(SalesReport salesReport) {
-        System.out.println();
-        System.out.println("_____________________________________________");
-        System.out.println("\t商品编号\t商品名称\t进货价格\t销售价格\t销售数量\t毛利润");
-        System.out.println(salesReport.toString());
-        System.out.println("");
-        System.out.println("_____________________________________________");
-        System.out.println();
-    }
 
     public void prtPrompt() {
         System.out.println("打印销售报表");
@@ -38,6 +29,7 @@ public class TransPrintSalesReport extends TransAbs {
             report.setProfits(report.calcProfits());
             reports.add(report);
         }
+        System.out.println("______________________________________________________________________________________________________________________");
         System.out.println("\t        商品编号\t        商品名称\t        进货价格\t        销售价格\t     销售数量\t      毛利润");
         double totalAmount = 0;
         int totalNumber = 0;
@@ -48,10 +40,12 @@ public class TransPrintSalesReport extends TransAbs {
             totalNumber += report.getSaleAmount();
             totalProfits += report.getProfits();
         }
-        System.out.println("总销售额：" + totalAmount);
+        System.out.println("______________________________________________________________________________________________________________________");
         System.out.println("总销量：" + totalNumber);
+        System.out.println("总销售额：" + totalAmount);
         System.out.println("总利润：" + totalProfits);
         setTrans_result("打印销售报表成功。");
+        System.out.println("______________________________________________________________________________________________________________________");
         return 0;
     }
 
