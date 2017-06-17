@@ -1,7 +1,6 @@
 package busi;
 
 public class SalesReport {
-
     private String goodsNo;
     private String goodsName;
     private double purchasePrice;
@@ -24,9 +23,15 @@ public class SalesReport {
         this.profits = profits;
     }
 
+    public double calcTotalAmount() {
+        double totalAmount = 0.00;
+        totalAmount = salePrice * saleAmount;
+        return totalAmount;
+    }
+
     public double calcProfits() {
         double profits = 0.00;
-        profits = (salePrice - purchasePrice) * (double)saleAmount;
+        profits = (salePrice - purchasePrice) * (double) saleAmount;
         return profits;
     }
 
@@ -80,8 +85,7 @@ public class SalesReport {
 
     @Override
     public String toString() {
-        return "SalesRow [goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", purchasePrice=" + purchasePrice
-                + ", salePrice=" + salePrice + ", saleAmount=" + saleAmount + ", profits=" + profits + "]";
+        return "  " + goodsNo + "\t" + goodsName + "\t " + purchasePrice + "\t " + salePrice + "\t   " + saleAmount
+                + "\t " + profits + "";
     }
-
 }

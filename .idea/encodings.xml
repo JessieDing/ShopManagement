@@ -2,7 +2,29 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/busi/DataValidate.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Goods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Inventory.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Provider.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Purchase.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Sale.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/busi/SalesReport.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/Tmp.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransAbs.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransAddGoods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransAddPrvd.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransAddPurchase.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransAddSale.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransEditGoods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransEditInventory.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransEditProvider.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransFactory.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransInterface.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/busi/TransPrintSalesReport.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransQueryGoods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransQueryInventory.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/busi/TransQueryProvider.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/db/DBOper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/ui/Practice.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/ui/ShopManagementMain.java" charset="GBK" />
   </component>
 </project>

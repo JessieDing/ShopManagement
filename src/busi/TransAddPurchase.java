@@ -13,11 +13,6 @@ public class TransAddPurchase extends TransAbs {
     Date purchase_date;// 进货日期
     String prvd;// 供货商
 
-    // public void addInventory(Purchase p) {
-    // Inventory inventory = new Inventory(p);
-    // dbhelper.insertInventory(inventory);
-    // }
-
     public int findGoodsInfo(String no) {
         Goods goods = dbhelper.exactFindGoods(no);
         if (goods == null) {

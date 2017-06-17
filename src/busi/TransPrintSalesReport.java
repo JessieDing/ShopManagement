@@ -5,13 +5,16 @@ import java.util.List;
 
 public class TransPrintSalesReport extends TransAbs {
 
-
     public void prtPrompt() {
         System.out.println("打印销售报表");
     }
 
     public int getInput() {
         return 0;
+    }
+
+    public void prtResult() {
+        System.out.println(trans_result);
     }
 
     public int doTrans() {
@@ -29,27 +32,29 @@ public class TransPrintSalesReport extends TransAbs {
             report.setProfits(report.calcProfits());
             reports.add(report);
         }
-        System.out.println("______________________________________________________________________________________________________________________");
-        System.out.println("\t        商品编号\t        商品名称\t        进货价格\t        销售价格\t     销售数量\t      毛利润");
-        double totalAmount = 0;
+        System.out.println();
+        System.out.println("\t\t\t   产品销售统计表");
+        System.out.println("________________________________________________________________");
+        System.out.println("     商品编号\t商品名称\t   进货价格\t   销售价格\t  销售数量\t   毛利润");
+
+        double totalAmount = 0.00;
         int totalNumber = 0;
         double totalProfits = 0;
         for (SalesReport report : reports) {
-            System.out.println(report.toString());//逐条打印sales
-            totalAmount += report.getSalePrice();
+            double rowSales = 0.00;
+            System.out.println(report.toString());// 逐条打印sales
+            rowSales = report.calcTotalAmount();// 计算每条销售情况的总销售额
+            totalAmount += rowSales;
             totalNumber += report.getSaleAmount();
             totalProfits += report.getProfits();
         }
-        System.out.println("______________________________________________________________________________________________________________________");
-        System.out.println("总销量：" + totalNumber);
-        System.out.println("总销售额：" + totalAmount);
-        System.out.println("总利润：" + totalProfits);
-        setTrans_result("打印销售报表成功。");
-        System.out.println("______________________________________________________________________________________________________________________");
+        System.out.println("________________________________________________________________");
+        System.out.println();
+        System.out.println("\t\t\t\t\t\t总销量：" + totalNumber);
+        System.out.println("\t\t\t\t\t\t总销售额：" + totalAmount);
+        System.out.println("\t\t\t\t\t\t总利润：" + totalProfits);
+        setTrans_result("\t\t\t\t\t\t销售报表打印完毕");
+        System.out.println("________________________________________________________________");
         return 0;
-    }
-
-    public void prtResult() {
-        System.out.println(trans_result);
     }
 }

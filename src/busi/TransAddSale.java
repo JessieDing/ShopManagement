@@ -127,5 +127,4 @@ public class TransAddSale extends TransAbs {
     public void prtResult() {
         System.out.println(trans_result);
     }
-
 }
