@@ -64,7 +64,7 @@ public class TransAddGoods extends TransAbs {
         Goods g = new Goods();
         g.setGoodsNumber(goods_no);// 把用户输入的商品编号赋值给Goods对象
         g.setGoodsName(goods_name);// 赋值商品名称
-        g.setGoods_unit(goods_unit);// 赋值商品单位
+        g.setGoodsUnit(goods_unit);// 赋值商品单位
         g.setGoods_status("0");// 新增商品，默认状态为0有效
         g.setQuality_days(quality_days);
         if (getDbhelper().insertGoods(g) == 0) {

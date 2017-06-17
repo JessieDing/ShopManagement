@@ -22,7 +22,7 @@ public class TransAddPurchase extends TransAbs {
             System.out.println("该商品信息如下：");
             System.out.print("goods_no[" + goods.getGoodsNumber() + "],");
             System.out.print("goods_name[" + goods.getGoodsName() + "],");
-            System.out.print("goods_unit[" + goods.getGoods_unit() + "]");
+            System.out.print("goods_unit[" + goods.getGoodsUnit() + "]");
             System.out.println();
             return 0;
         }
