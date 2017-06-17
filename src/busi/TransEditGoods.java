@@ -66,7 +66,7 @@ public class TransEditGoods extends TransAbs {
         Goods goods = dbhelper.exactFindGoods(goods_no);
         goods.setGoodsName(goods_name);
         goods.setGoodsUnit(goods_unit);
-        goods.setGoods_status(goods_status);
+        goods.setGoodsStatus(goods_status);
         setTrans_result("修改成功");
         dbhelper.editGoodsInfo(dbhelper.getGoodsFile(), goods_no);//修改后写入文件
         return 0;
