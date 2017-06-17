@@ -5,19 +5,19 @@ public class Goods {
     private String goodsName;// 商品名称
     private String goodsUnit;// 商品单位
     private String goods_status;// 商品状态
-    private int quality_days;//保质期至
+    private int qualityDays;//保质期至
 
     public Goods() {
         super();
     }
 
-    public Goods(String goodsNumber, String goodsName, String goodsUnit, String goods_status, int quality_days) {
+    public Goods(String goodsNumber, String goodsName, String goodsUnit, String goods_status, int qualityDays) {
         super();
         this.goodsNumber = goodsNumber;
         this.goodsName = goodsName;
         this.goodsUnit = goodsUnit;
         this.goods_status = goods_status;
-        this.quality_days = quality_days;
+        this.qualityDays = qualityDays;
     }
 
     public int addGoods() {
@@ -68,24 +68,24 @@ public class Goods {
         this.goods_status = i;
     }
 
-    public int getQuality_days() {
-        return quality_days;
+    public int getQualityDays() {
+        return qualityDays;
     }
 
-    public void setQuality_days(int quality_days) {
+    public void setQualityDays(int qualityDays) {
 
-        this.quality_days = quality_days;
+        this.qualityDays = qualityDays;
 
     }
 
     @Override
     public String toString() {
         return "Goods [goodsNumber=" + goodsNumber + ", goodsName=" + goodsName + ", goodsUnit=" + goodsUnit
-                + ", goods_status=" + goods_status + ", quality_days=" + quality_days + "]";
+                + ", goods_status=" + goods_status + ", qualityDays=" + qualityDays + "]";
     }
 
     public String toFileString() {
         return goodsNumber + "," + goodsName + "," + goodsUnit
-                + "," + goods_status + "," + quality_days;
+                + "," + goods_status + "," + qualityDays;
     }
 }
