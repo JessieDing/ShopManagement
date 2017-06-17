@@ -80,8 +80,7 @@ public class Goods {
 
     @Override
     public String toString() {
-        return "Goods [goodsNumber=" + goodsNumber + ", goodsName=" + goodsName + ", goodsUnit=" + goodsUnit
-                + ", goodsStatus=" + goodsStatus + ", qualityDays=" + qualityDays + "]";
+        return String.format("Goods [goodsNumber=%s, goodsName=%s, goodsUnit=%s, goodsStatus=%s, qualityDays=%s]", goodsNumber, goodsName, goodsUnit, goodsStatus, qualityDays);
     }
 
     public String toFileString() {
