@@ -64,7 +64,7 @@ public class TransEditGoods extends TransAbs {
 
     public int doTrans() {
         Goods goods = dbhelper.exactFindGoods(goods_no);
-        goods.setGoods_name(goods_name);
+        goods.setGoodsName(goods_name);
         goods.setGoods_unit(goods_unit);
         goods.setGoods_status(goods_status);
         setTrans_result("ÐÞ¸Ä³É¹¦");

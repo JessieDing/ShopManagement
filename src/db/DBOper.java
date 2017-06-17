@@ -92,7 +92,7 @@ public class DBOper {
     public List<Goods> fuzFindGoods(String str) {
         List<Goods> list = new ArrayList<Goods>();
         for (Goods g : goods_list) {
-            if (g.getGoods_name().indexOf(str) != -1) {
+            if (g.getGoodsName().indexOf(str) != -1) {
                 list.add(g);
             }
         }
