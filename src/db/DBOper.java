@@ -46,7 +46,7 @@ public class DBOper {
 
     public Goods exactFindGoods(String no) {
         for (Goods g : goods_list) {
-            if (g.getGoods_no().equals(no)) {
+            if (g.getGoodsNumber().equals(no)) {
                 return g;
             }
         }
@@ -147,8 +147,8 @@ public class DBOper {
 
     public int delGoods(Goods g) {
         for (int i = 0; i < goods_list.size(); i++) {
-            String good_no = goods_list.get(i).getGoods_no();// 当前对象商品编号
-            String del_goods_no = g.getGoods_no();// 要删除的商品编号
+            String good_no = goods_list.get(i).getGoodsNumber();// 当前对象商品编号
+            String del_goods_no = g.getGoodsNumber();// 要删除的商品编号
             if (good_no.equals(del_goods_no)) {
                 goods_list.remove(i);
             }

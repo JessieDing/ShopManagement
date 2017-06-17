@@ -2,8 +2,7 @@
 /.idea/
 /.settings/
 /out/
-/.classpath
-/.project
 /bin/
 /lib/
 /src/tmp/
+/out/*
