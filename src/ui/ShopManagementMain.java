@@ -38,6 +38,7 @@ public class ShopManagementMain {
                 if (trans.getInput() != 0) {// 读取输入的数据
                     trans.prtResult();
                     System.out.println("获取输入数据失败");
+//                    System.out.println("获取输入数据失败");
                 } else {
                     if (trans.doTrans() != 0) {
                         trans.prtResult();
