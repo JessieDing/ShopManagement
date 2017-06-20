@@ -64,7 +64,7 @@ public class DBOper {
 
     public Purchase exactFindPurchase(String no) {
         for (Purchase p : purchase_list) {
-            if (p.getGoods_no().equals(no)) {
+            if (p.getGoodsNumber().equals(no)) {
                 return p;
             }
         }

@@ -67,7 +67,7 @@
 //                dbhelper.deleteInventoryGoodsCount(goods_no, deleteAmt);
 //                setTrans_result("减少库存成功");
 //            } else if (editType.equals("1")) {
-//                int addAmt = inventory.getGoods_count() + purchase.getPurchase_amt();
+//                int addAmt = inventory.getGoods_count() + purchase.getPurchaseAmount();
 //                dbhelper.addInventoryGoodsCount(goods_no, addAmt);
 //                setTrans_result("增加库存成功");
 //            }

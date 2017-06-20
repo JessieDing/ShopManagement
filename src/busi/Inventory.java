@@ -18,12 +18,12 @@ public class Inventory {
 
     public Inventory(Purchase p) {
         super();
-        this.goodsNumber = p.getGoods_no();
-        this.goodsName = p.getGoods_name();
-        this.goodsCount = p.getPurchase_amt();
-        this.goodsUnit = p.getGoods_unit();
-        this.goodsPrice = p.getPurchase_price();
-        this.purchaseDate = p.getPurchase_date();
+        this.goodsNumber = p.getGoodsNumber();
+        this.goodsName = p.getGoodsName();
+        this.goodsCount = p.getPurchaseAmount();
+        this.goodsUnit = p.getGoodsUnit();
+        this.goodsPrice = p.getPurchasePrice();
+        this.purchaseDate = p.getPurchaseDate();
     }
 
     public String getGoodsNumber() {

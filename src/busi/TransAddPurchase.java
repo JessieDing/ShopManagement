@@ -101,13 +101,13 @@ public class TransAddPurchase extends TransAbs {
 
     public int doTrans() {
         Purchase purchase = new Purchase();
-        purchase.setGoods_no(goods_no);
-        purchase.setGoods_name(goods_name);
-        purchase.setPurchase_amt(goods_count);
-        purchase.setGoods_unit(goods_unit);
-        purchase.setPurchase_price(goods_price);
-        purchase.setPurchase_date(purchase_date);
-        purchase.setPrvd(prvd);
+        purchase.setGoodsNumber(goods_no);
+        purchase.setGoodsName(goods_name);
+        purchase.setPurchaseAmount(goods_count);
+        purchase.setGoodsUnit(goods_unit);
+        purchase.setPurchasePrice(goods_price);
+        purchase.setPurchaseDate(purchase_date);
+        purchase.setProvider(prvd);
         addInventory(purchase);// 添加库存(采购之后才有库存)
         if (getDbhelper().insertPurchase(purchase) == 0) {
             dbhelper.prtAllPurchase();
@@ -120,12 +120,12 @@ public class TransAddPurchase extends TransAbs {
     }
 
     private void addInventory(Purchase purchase) {
-        Inventory inventory = dbhelper.exactFindInventory(purchase.getGoods_no());
+        Inventory inventory = dbhelper.exactFindInventory(purchase.getGoodsNumber());
         if (inventory == null) {
             inventory = new Inventory(purchase);
             dbhelper.insertInventory(inventory);
         } else {
-            inventory.setGoodsCount(inventory.getGoodsCount() + purchase.getPurchase_amt());
+            inventory.setGoodsCount(inventory.getGoodsCount() + purchase.getPurchaseAmount());
         }
     }
 

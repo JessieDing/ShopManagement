@@ -28,7 +28,7 @@ public class TransPrintSalesReport extends TransAbs {
             report.setSalePrice(sale.getPrice());
             report.setSaleAmount(sale.getSale_amt());
             Purchase purchase = dbhelper.exactFindPurchase(sale.getGoods_no());
-            report.setPurchasePrice(purchase.getPurchase_price());
+            report.setPurchasePrice(purchase.getPurchasePrice());
             report.setProfits(report.calcProfits());
             reports.add(report);
         }
