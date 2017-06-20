@@ -21,7 +21,7 @@ public class TransQueryProvider extends TransAbs {
 
 	public void prtPrompt() {
 		System.out.println("查询供货商|请输入以下信息：");
-		System.out.println("@query_type @provider_no @provider_name");
+		System.out.println("@query_type @providerNumber @providerName");
 		System.out.println("query_type：0-全部查询  1-精确查询   2-模糊查询");
 	}
 

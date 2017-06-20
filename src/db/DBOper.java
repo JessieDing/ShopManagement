@@ -55,7 +55,7 @@ public class DBOper {
 
     public Provider exactFindProvider(String no) {
         for (Provider p : provider_list) {
-            if (p.getProvider_no().equals(no)) {
+            if (p.getProviderNumber().equals(no)) {
                 return p;
             }
         }
@@ -102,7 +102,7 @@ public class DBOper {
     public List<Provider> fuzFindProvider(String str) {
         List<Provider> list = new ArrayList<Provider>();
         for (Provider p : provider_list) {
-            if (p.getProvider_name().indexOf(str) != -1) {
+            if (p.getProviderName().indexOf(str) != -1) {
                 list.add(p);
             }
         }
@@ -158,8 +158,8 @@ public class DBOper {
 
     public int delProvider(Provider p) {
         for (int i = 0; i < provider_list.size(); i++) {
-            String provider_no = provider_list.get(i).getProvider_no();// 当前对象供货商编号
-            String del_provider_no = p.getProvider_no();// 要删除的供货商编号
+            String provider_no = provider_list.get(i).getProviderNumber();// 当前对象供货商编号
+            String del_provider_no = p.getProviderNumber();// 要删除的供货商编号
             if (provider_no.equals(del_provider_no)) {
                 provider_list.remove(i);
             }

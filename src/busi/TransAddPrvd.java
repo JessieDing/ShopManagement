@@ -8,7 +8,7 @@ public class TransAddPrvd extends TransAbs {
 
 	public void prtPrompt() {
 		System.out.println("添加供货商|请输入以下信息：");
-		System.out.println("@provider_no @provider_name @provider_addr @provider_tel");
+		System.out.println("@providerNumber @providerName @providerAddress @providerTel");
 	};
 
 	public int getInput() {
@@ -54,20 +54,20 @@ public class TransAddPrvd extends TransAbs {
 			return -1;
 		}
 
-		System.out.print("provider_no[" + provider_no + "],");
-		System.out.print("provider_name[" + provider_name + "],");
-		System.out.print("provider_addr[" + provider_addr + "]");
-		System.out.print("provider_tel[" + provider_tel + "]");
+		System.out.print("providerNumber[" + provider_no + "],");
+		System.out.print("providerName[" + provider_name + "],");
+		System.out.print("providerAddress[" + provider_addr + "]");
+		System.out.print("providerTel[" + provider_tel + "]");
 		System.out.println();
 		return 0;
 	}
 
 	public int doTrans() {
 		Provider p = new Provider();
-		p.setProvider_no(provider_no);
-		p.setProvider_name(provider_name);
-		p.setProvider_addr(provider_addr);
-		p.setProvider_tel(provider_tel);
+		p.setProviderNumber(provider_no);
+		p.setProviderName(provider_name);
+		p.setProviderAddress(provider_addr);
+		p.setProviderTel(provider_tel);
 		if (getDbhelper().insertProvider(p) == 0) {
 			setTrans_result("新增供货商成功");
 			return 0;

@@ -22,7 +22,7 @@ public class TransEditProvider extends TransAbs {
 
 	public void prtPrompt() {
 		System.out.println("供货商信息修改|请输入已有供货商编号和修改后的信息：");
-		System.out.println("@provider_no @provider_name @provider_addr @provider_tels @provider_status");
+		System.out.println("@providerNumber @providerName @providerAddress @provider_tels @providerStatus");
 
 	}
 
@@ -66,10 +66,10 @@ public class TransEditProvider extends TransAbs {
 
 	public int doTrans() {
 		Provider provider = dbhelper.exactFindProvider(provider_no);
-		provider.setProvider_name(provider_name);
-		provider.setProvider_addr(provider_addr);
-		provider.setProvider_tel(provider_tel);
-		provider.setProvider_status(provider_status);
+		provider.setProviderName(provider_name);
+		provider.setProviderAddress(provider_addr);
+		provider.setProviderTel(provider_tel);
+		provider.setProviderStatus(provider_status);
 		setTrans_result("修改成功");
 
 		return 0;
