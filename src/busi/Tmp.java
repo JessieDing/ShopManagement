@@ -37,8 +37,8 @@
 //
 // public int doTrans() {
 // if (sale != null) {
-// int changedAmt = inventory.getGoods_count() - sale.getSale_amt();
-//// inventory.setGoods_count(changedAmt);
+// int changedAmt = inventory.getGoodsCount() - sale.getSale_amt();
+//// inventory.setGoodsCount(changedAmt);
 // dbhelper.deleteInventoryGoodsCount(goods_no, changedAmt);
 // setTrans_result("ÐÞ¸Ä³É¹¦");
 // } else {

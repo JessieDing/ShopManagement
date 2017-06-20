@@ -27,8 +27,8 @@ public class DBOper {
 
     public void addInventoryGoodsCount(String goodsNo, int addAmoumt) {
         for (Inventory i : inventory_list) {
-            if (i.getGoods_no().equals(goodsNo)) {
-                i.setGoods_count(addAmoumt);// addAmount =
+            if (i.getGoodsNumber().equals(goodsNo)) {
+                i.setGoodsCount(addAmoumt);// addAmount =
                 // inventoryAmt+purchaseAmt
                 break;
             }
@@ -37,8 +37,8 @@ public class DBOper {
 
     public void deleteInventoryGoodsCount(String goodsNo, int changeAmount) {
         for (Inventory i : inventory_list) {
-            if (i.getGoods_no().equals(goodsNo)) {
-                i.setGoods_count(changeAmount);
+            if (i.getGoodsNumber().equals(goodsNo)) {
+                i.setGoodsCount(changeAmount);
                 break;
             }
         }
@@ -82,7 +82,7 @@ public class DBOper {
 
     public Inventory exactFindInventory(String no) {
         for (Inventory inventory : inventory_list) {
-            if (inventory.getGoods_no().equals(no)) {
+            if (inventory.getGoodsNumber().equals(no)) {
                 return inventory;
             }
         }
@@ -112,7 +112,7 @@ public class DBOper {
     public List<Inventory> fuzFindInventory(String str) {
         List<Inventory> list = new ArrayList<Inventory>();
         for (Inventory i : inventory_list) {
-            if (i.getGoods_name().indexOf(str) != -1) {
+            if (i.getGoodsName().indexOf(str) != -1) {
                 list.add(i);
             }
         }

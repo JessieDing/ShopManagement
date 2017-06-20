@@ -5,83 +5,81 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Inventory {
-	private String goods_no;// 商品编号
-	private String goods_name;// 商品名称
-	private int goods_count = 0;// 商品数量
-	private String goods_unit;// 商品单位
-	private double goods_price;// 进货价格
-	private Date purchase_date;// 进货日期
+    private String goodsNumber;// 商品编号
+    private String goodsName;// 商品名称
+    private int goodsCount = 0;// 商品数量
+    private String goodsUnit;// 商品单位
+    private double goodsPrice;// 进货价格
+    private Date purchaseDate;// 进货日期
 
-	public Inventory() {
-		super();
+    public Inventory() {
+        super();
+    }
 
-	}
+    public Inventory(Purchase p) {
+        super();
+        this.goodsNumber = p.getGoods_no();
+        this.goodsName = p.getGoods_name();
+        this.goodsCount = p.getPurchase_amt();
+        this.goodsUnit = p.getGoods_unit();
+        this.goodsPrice = p.getPurchase_price();
+        this.purchaseDate = p.getPurchase_date();
+    }
 
-	public Inventory(Purchase p) {
-		super();
-		this.goods_no = p.getGoods_no();
-		this.goods_name = p.getGoods_name();
-		this.goods_count = p.getPurchase_amt();
-		this.goods_unit = p.getGoods_unit();
-		this.goods_price = p.getPurchase_price();
-		this.purchase_date = p.getPurchase_date();
-	}
+    public String getGoodsNumber() {
+        return goodsNumber;
+    }
 
-	public String getGoods_no() {
-		return goods_no;
-	}
+    public void setGoodsNumber(String goodsNumber) {
+        this.goodsNumber = goodsNumber;
+    }
 
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
-	}
+    public String getGoodsName() {
+        return goodsName;
+    }
 
-	public String getGoods_name() {
-		return goods_name;
-	}
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
 
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
-	}
+    public int getGoodsCount() {
+        return goodsCount;
+    }
 
-	public int getGoods_count() {
-		return goods_count;
-	}
+    public void setGoodsCount(int goodsCount) {
+        this.goodsCount = goodsCount;
+    }
 
-	public void setGoods_count(int goods_count) {
-		this.goods_count = goods_count;
-	}
+    public String getGoodsUnit() {
+        return goodsUnit;
+    }
 
-	public String getGoods_unit() {
-		return goods_unit;
-	}
+    public void setGoodsUnit(String goodsUnit) {
+        this.goodsUnit = goodsUnit;
+    }
 
-	public void setGoods_unit(String goods_unit) {
-		this.goods_unit = goods_unit;
-	}
+    public double getGoodsPrice() {
+        return goodsPrice;
+    }
 
-	public double getGoods_price() {
-		return goods_price;
-	}
+    public void setGoodsPrice(double goodsPrice) {
+        this.goodsPrice = goodsPrice;
+    }
 
-	public void setGoods_price(double goods_price) {
-		this.goods_price = goods_price;
-	}
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
 
-	public Date getPurchase_date() {
-		return purchase_date;
-	}
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
 
-	public void setPurchase_date(Date purchase_date) {
-		this.purchase_date = purchase_date;
-	}
-
-	@Override
-	public String toString() {
-		DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-		String purchaseDate = date.format(purchase_date);
-		return "Inventory [goods_no=" + goods_no + ", goods_name=" + goods_name + ", goods_count=" + goods_count
-				+ ", goods_unit=" + goods_unit + ", goods_price=" + goods_price + ", purchase_date=" + purchaseDate
-				+ "]";
-	}
-
+    @Override
+    public String toString() {
+        DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        String purchaseDate = date.format(this.purchaseDate);
+        return "Inventory [goodsNumber=" + goodsNumber + ", goodsName=" + goodsName + ", goodsCount=" + goodsCount
+                + ", goodsUnit=" + goodsUnit + ", goodsPrice=" + goodsPrice + ", purchaseDate=" + purchaseDate
+                + "]";
+    }
 }

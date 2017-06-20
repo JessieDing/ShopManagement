@@ -125,7 +125,7 @@ public class TransAddPurchase extends TransAbs {
             inventory = new Inventory(purchase);
             dbhelper.insertInventory(inventory);
         } else {
-            inventory.setGoods_count(inventory.getGoods_count() + purchase.getPurchase_amt());
+            inventory.setGoodsCount(inventory.getGoodsCount() + purchase.getPurchase_amt());
         }
     }
 

@@ -21,9 +21,9 @@ public class TransAddSale extends TransAbs {
             return -1;
         } else {
             System.out.println("该商品信息如下：");
-            System.out.println("goods_no[" + inventory.getGoods_no() + "],");
-            System.out.println("goods_name[" + inventory.getGoods_name() + "],");
-            System.out.println("Goods_count[" + inventory.getGoods_count() + "]");
+            System.out.println("goods_no[" + inventory.getGoodsNumber() + "],");
+            System.out.println("goods_name[" + inventory.getGoodsName() + "],");
+            System.out.println("Goods_count[" + inventory.getGoodsCount() + "]");
 
         }
 
@@ -58,7 +58,7 @@ public class TransAddSale extends TransAbs {
         String count = scan.next();
         sale_count = Integer.parseInt(count);
         Inventory inventory = dbhelper.exactFindInventory(goods_no);
-        if (sale_count > inventory.getGoods_count()) {
+        if (sale_count > inventory.getGoodsCount()) {
             setTrans_result("库存不足！");
             return -1;
         }
@@ -70,7 +70,7 @@ public class TransAddSale extends TransAbs {
         }
 
         sale_price = Double.parseDouble(scan.next());
-        if (sale_price < inventory.getGoods_price()) {
+        if (sale_price < inventory.getGoodsPrice()) {
             setTrans_result("输入错误，售价小于进价！");
             return -1;
         }
@@ -81,7 +81,7 @@ public class TransAddSale extends TransAbs {
                 sale_date = date.parse(scan.next());
             } catch (Exception e) {
             }
-            if (sale_date.before(inventory.getPurchase_date())) {
+            if (sale_date.before(inventory.getPurchaseDate())) {
                 System.out.println("输入错误，销售时间早于进货时间！");
                 return -1;
             }
@@ -117,10 +117,10 @@ public class TransAddSale extends TransAbs {
         Inventory inventory = dbhelper.exactFindInventory(sale.getGoods_no());
         if (inventory == null) {
             System.out.println("库存不足");
-        } else if (inventory.getGoods_count() < sale.getSale_amt()) {
+        } else if (inventory.getGoodsCount() < sale.getSale_amt()) {
             System.out.println("库存不足");
         } else {
-            inventory.setGoods_count(inventory.getGoods_count() - sale.getSale_amt());
+            inventory.setGoodsCount(inventory.getGoodsCount() - sale.getSale_amt());
         }
     }
 
