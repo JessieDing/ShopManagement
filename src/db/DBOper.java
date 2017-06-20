@@ -73,7 +73,7 @@ public class DBOper {
 
     public Sale exactFindSale(String no) {
         for (Sale s : sale_list) {
-            if (s.getGoods_no().equals(no)) {
+            if (s.getGoodsNumber().equals(no)) {
                 return s;
             }
         }

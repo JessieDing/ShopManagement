@@ -23,11 +23,11 @@ public class TransPrintSalesReport extends TransAbs {
         List<SalesReport> reports = new ArrayList<>();
         for (Sale sale : sales) {
             SalesReport report = new SalesReport();
-            report.setGoodsName(sale.getGoods_name());
-            report.setGoodsNo(sale.getGoods_no());
+            report.setGoodsName(sale.getGoodsName());
+            report.setGoodsNo(sale.getGoodsNumber());
             report.setSalePrice(sale.getPrice());
-            report.setSaleAmount(sale.getSale_amt());
-            Purchase purchase = dbhelper.exactFindPurchase(sale.getGoods_no());
+            report.setSaleAmount(sale.getSaleAmount());
+            Purchase purchase = dbhelper.exactFindPurchase(sale.getGoodsNumber());
             report.setPurchasePrice(purchase.getPurchasePrice());
             report.setProfits(report.calcProfits());
             reports.add(report);

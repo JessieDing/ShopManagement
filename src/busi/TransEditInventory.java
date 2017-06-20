@@ -63,7 +63,7 @@
 //            inventory = dbhelper.exactFindInventory(goods_no);
 //
 //            if (editType.equals("0")) {
-//                int deleteAmt = inventory.getGoods_count() - sale.getSale_amt();
+//                int deleteAmt = inventory.getGoods_count() - sale.getSaleAmount();
 //                dbhelper.deleteInventoryGoodsCount(goods_no, deleteAmt);
 //                setTrans_result("ºı…Ÿø‚¥Ê≥…π¶");
 //            } else if (editType.equals("1")) {

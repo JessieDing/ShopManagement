@@ -5,22 +5,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Sale {
-	private String goods_no;// 商品编号
-	private String goods_name;// 商品名称
-	private int sale_amt;// 销售数量
+	private String goodsNumber;// 商品编号
+	private String goodsName;// 商品名称
+	private int saleAmount;// 销售数量
 	private double price;// 销售价格
-	private Date sale_date;// 销售日期
+	private Date saleDate;// 销售日期
 
 	public Sale() {
 		super();
 	}
 
-	public Sale(String goods_no, String goods_name, int sale_amt, double price, Date sale_date) {
-		this.goods_no = goods_no;
-		this.goods_name = goods_name;
-		this.sale_amt = sale_amt;
+	public Sale(String goodsNumber, String goodsName, int saleAmount, double price, Date saleDate) {
+		this.goodsNumber = goodsNumber;
+		this.goodsName = goodsName;
+		this.saleAmount = saleAmount;
 		this.price = price;
-		this.sale_date = sale_date;
+		this.saleDate = saleDate;
 	}
 
 	public int addSale() {
@@ -39,28 +39,28 @@ public class Sale {
 		return 0;
 	}
 
-	public String getGoods_no() {
-		return goods_no;
+	public String getGoodsNumber() {
+		return goodsNumber;
 	}
 
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
+	public void setGoodsNumber(String goodsNumber) {
+		this.goodsNumber = goodsNumber;
 	}
 
-	public String getGoods_name() {
-		return goods_name;
+	public String getGoodsName() {
+		return goodsName;
 	}
 
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
 	}
 
-	public int getSale_amt() {
-		return sale_amt;
+	public int getSaleAmount() {
+		return saleAmount;
 	}
 
-	public void setSale_amt(int sale_amt) {
-		this.sale_amt = sale_amt;
+	public void setSaleAmount(int saleAmount) {
+		this.saleAmount = saleAmount;
 	}
 
 	public double getPrice() {
@@ -71,20 +71,19 @@ public class Sale {
 		this.price = price;
 	}
 
-	public Date getSale_date() {
-		return sale_date;
+	public Date getSaleDate() {
+		return saleDate;
 	}
 
-	public void setSale_date(Date sale_date) {
-		this.sale_date = sale_date;
+	public void setSaleDate(Date saleDate) {
+		this.saleDate = saleDate;
 	}
 
 	@Override
 	public String toString() {
 		DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-		String saleDate = date.format(sale_date);
-		return "Sale [goods_no=" + goods_no + ", goods_name=" + goods_name + ", sale_amt=" + sale_amt + ", price="
-				+ price + ", sale_date=" + saleDate + "]";
+		String saleDate = date.format(this.saleDate);
+		return "Sale [goodsNumber=" + goodsNumber + ", goodsName=" + goodsName + ", saleAmount=" + saleAmount + ", price="
+				+ price + ", saleDate=" + saleDate + "]";
 	}
-
 }

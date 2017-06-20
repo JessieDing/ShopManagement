@@ -96,11 +96,11 @@ public class TransAddSale extends TransAbs {
     public int doTrans() {
 
         Sale sale = new Sale();
-        sale.setGoods_no(goods_no);
-        sale.setGoods_name(goods_name);
+        sale.setGoodsNumber(goods_no);
+        sale.setGoodsName(goods_name);
         sale.setPrice(sale_price);
-        sale.setSale_amt(sale_count);
-        sale.setSale_date(sale_date);
+        sale.setSaleAmount(sale_count);
+        sale.setSaleDate(sale_date);
         deleteInventory(sale);//´Ó¿â´æÖÐÉ¾³ý
         if (getDbhelper().insertSale(sale) == 0) {
             getDbhelper().prtAllSale();
@@ -114,13 +114,13 @@ public class TransAddSale extends TransAbs {
     }
 
     private void deleteInventory(Sale sale) {
-        Inventory inventory = dbhelper.exactFindInventory(sale.getGoods_no());
+        Inventory inventory = dbhelper.exactFindInventory(sale.getGoodsNumber());
         if (inventory == null) {
             System.out.println("¿â´æ²»×ã");
-        } else if (inventory.getGoodsCount() < sale.getSale_amt()) {
+        } else if (inventory.getGoodsCount() < sale.getSaleAmount()) {
             System.out.println("¿â´æ²»×ã");
         } else {
-            inventory.setGoodsCount(inventory.getGoodsCount() - sale.getSale_amt());
+            inventory.setGoodsCount(inventory.getGoodsCount() - sale.getSaleAmount());
         }
     }
 
