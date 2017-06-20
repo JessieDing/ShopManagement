@@ -6,7 +6,7 @@ public class TransAddGoods extends TransAbs {
     String goods_unit;// 单位
     int quality_days;//保存天数
 
-    public void prtPrompt() {
+    public void printPrompt() {
         System.out.println("添加商品|请输入以下信息：");
         System.out.println("@goods_no @goods_name @goods_unit @quality_days");
     }
@@ -77,7 +77,7 @@ public class TransAddGoods extends TransAbs {
         }
     }
 
-    public void prtResult() {
+    public void printResult() {
         System.out.println(trans_result);
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TransPrintSalesReport extends TransAbs {
 
-    public void prtPrompt() {
+    public void printPrompt() {
         System.out.println("打印销售报表");
     }
 
@@ -13,7 +13,7 @@ public class TransPrintSalesReport extends TransAbs {
         return 0;
     }
 
-    public void prtResult() {
+    public void printResult() {
         System.out.println(trans_result);
     }
 
@@ -24,7 +24,7 @@ public class TransPrintSalesReport extends TransAbs {
         for (Sale sale : sales) {
             SalesReport report = new SalesReport();
             report.setGoodsName(sale.getGoodsName());
-            report.setGoodsNo(sale.getGoodsNumber());
+            report.setGoodsNumber(sale.getGoodsNumber());
             report.setSalePrice(sale.getPrice());
             report.setSaleAmount(sale.getSaleAmount());
             Purchase purchase = dbhelper.exactFindPurchase(sale.getGoodsNumber());

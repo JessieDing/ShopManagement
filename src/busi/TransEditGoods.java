@@ -18,7 +18,7 @@ public class TransEditGoods extends TransAbs {
         this.goods_status = goods_status;
     }
 
-    public void prtPrompt() {
+    public void printPrompt() {
         System.out.println("商品信息修改|请输入已有商品编号和修改后的商品信息：");
         System.out.println("@goods_no @goods_name @goods_unit @goods_status");
 
@@ -72,7 +72,7 @@ public class TransEditGoods extends TransAbs {
         return 0;
     }
 
-    public void prtResult() {
+    public void printResult() {
         System.out.println(trans_result);
     }
 

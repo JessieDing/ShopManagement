@@ -11,10 +11,9 @@ abstract public class TransAbs implements TransInterface {
 
 	public TransAbs() {
 		scan = new Scanner(System.in);
-
 	}
 
-	public void prtResult() {
+	public void printResult() {
 		System.out.println(trans_result);
 	}
 

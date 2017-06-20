@@ -19,7 +19,7 @@ public class TransQueryProvider extends TransAbs {
 		this.provider_name = provider_name;
 	}
 
-	public void prtPrompt() {
+	public void printPrompt() {
 		System.out.println("查询供货商|请输入以下信息：");
 		System.out.println("@query_type @providerNumber @providerName");
 		System.out.println("query_type：0-全部查询  1-精确查询   2-模糊查询");
@@ -82,7 +82,7 @@ public class TransQueryProvider extends TransAbs {
 		return 0;
 	}
 
-	public void prtResult() {
+	public void printResult() {
 		System.out.println(trans_result);
 	}
 

@@ -18,7 +18,7 @@
 // Sale sale;
 //
 //
-// public void prtPrompt() {
+// public void printPrompt() {
 // System.out.println("库存信息修改|请输入商品编号：");
 //
 // }
@@ -49,7 +49,7 @@
 // return 0;
 // }
 //
-// public void prtResult() {
+// public void printResult() {
 // System.out.println(trans_result);
 // }
 //

@@ -19,7 +19,7 @@
 //        dbhelper.insertInventory(inventory);
 //    }
 //
-//    public void prtPrompt() {
+//    public void printPrompt() {
 //        System.out.println("库存信息修改|请输入以下信息：");
 //        System.out.println("@editType @goods_no @goods_name");
 //        System.out.println("editType： 0-减少库存 1-增加库存  ");
@@ -77,7 +77,7 @@
 //        return 0;
 //    }
 //
-//    public void prtResult() {
+//    public void printResult() {
 //        System.out.println(trans_result);
 //    }
 //

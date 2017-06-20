@@ -20,7 +20,7 @@ public class TransEditProvider extends TransAbs {
 		this.provider_tel = provider_tel;
 	}
 
-	public void prtPrompt() {
+	public void printPrompt() {
 		System.out.println("供货商信息修改|请输入已有供货商编号和修改后的信息：");
 		System.out.println("@providerNumber @providerName @providerAddress @provider_tels @providerStatus");
 
@@ -75,7 +75,7 @@ public class TransEditProvider extends TransAbs {
 		return 0;
 	}
 
-	public void prtResult() {
+	public void printResult() {
 		System.out.println(trans_result);
 	}
 

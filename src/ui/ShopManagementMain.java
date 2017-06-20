@@ -34,16 +34,16 @@ public class ShopManagementMain {
             trans = tFactory.createTrans(strTrans);
             if (trans != null) {
                 trans.setDbhelper(dbhelper);
-                trans.prtPrompt();// 打印交易提示信息
+                trans.printPrompt();// 打印交易提示信息
                 if (trans.getInput() != 0) {// 读取输入的数据
-                    trans.prtResult();
+                    trans.printResult();
                     System.out.println("获取输入数据失败");
                 } else {
                     if (trans.doTrans() != 0) {
-                        trans.prtResult();
+                        trans.printResult();
                         continue;
                     } else {
-                        trans.prtResult();
+                        trans.printResult();
                         continue;
                     }
                 }

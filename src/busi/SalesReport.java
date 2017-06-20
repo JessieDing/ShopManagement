@@ -1,7 +1,7 @@
 package busi;
 
 public class SalesReport {
-    private String goodsNo;
+    private String goodsNumber;
     private String goodsName;
     private double purchasePrice;
     private double salePrice;
@@ -12,10 +12,10 @@ public class SalesReport {
         super();
     }
 
-    public SalesReport(String goodsNo, String goodsName, int purchasePrice, int salePrice, int saleAmount,
+    public SalesReport(String goodsNumber, String goodsName, int purchasePrice, int salePrice, int saleAmount,
                        double profits) {
         super();
-        this.goodsNo = goodsNo;
+        this.goodsNumber = goodsNumber;
         this.goodsName = goodsName;
         this.purchasePrice = purchasePrice;
         this.salePrice = salePrice;
@@ -35,12 +35,12 @@ public class SalesReport {
         return profits;
     }
 
-    public String getGoodsNo() {
-        return goodsNo;
+    public String getGoodsNumber() {
+        return goodsNumber;
     }
 
-    public void setGoodsNo(String goodsNo) {
-        this.goodsNo = goodsNo;
+    public void setGoodsNumber(String goodsNumber) {
+        this.goodsNumber = goodsNumber;
     }
 
     public String getGoodsName() {
@@ -85,7 +85,7 @@ public class SalesReport {
 
     @Override
     public String toString() {
-        return "  " + goodsNo + "\t" + goodsName + "\t " + purchasePrice + "\t " + salePrice + "\t   " + saleAmount
+        return "  " + goodsNumber + "\t" + goodsName + "\t " + purchasePrice + "\t " + salePrice + "\t   " + saleAmount
                 + "\t " + profits + "";
     }
 }

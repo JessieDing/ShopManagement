@@ -6,7 +6,7 @@ public class TransAddPrvd extends TransAbs {
 	String provider_addr;// 供货商地址
 	String provider_tel;// 供货商电话
 
-	public void prtPrompt() {
+	public void printPrompt() {
 		System.out.println("添加供货商|请输入以下信息：");
 		System.out.println("@providerNumber @providerName @providerAddress @providerTel");
 	};
@@ -77,7 +77,7 @@ public class TransAddPrvd extends TransAbs {
 		}
 	}
 
-	public void prtResult() {
+	public void printResult() {
 		System.out.println(trans_result);
 	}
 }

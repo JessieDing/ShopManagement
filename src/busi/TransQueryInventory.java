@@ -7,7 +7,7 @@ public class TransQueryInventory extends TransAbs {
 	String goods_no;// 商品编号
 	String goods_name;// 商品名称
 
-	public void prtPrompt() {
+	public void printPrompt() {
 		System.out.println("查询商品|请输入以下信息：");
 		System.out.println("@query_type @goods_no @goods_name");
 		System.out.println("query_type：0-全部查询  1-精确查询   2-模糊查询");
@@ -72,7 +72,7 @@ public class TransQueryInventory extends TransAbs {
 		return 0;
 	}
 
-	public void prtResult() {
+	public void printResult() {
 		System.out.println(trans_result);
 	}
 }

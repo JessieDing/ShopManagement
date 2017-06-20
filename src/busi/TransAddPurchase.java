@@ -28,7 +28,7 @@ public class TransAddPurchase extends TransAbs {
         }
     }
 
-    public void prtPrompt() {
+    public void printPrompt() {
         System.out.println(" ‰»Î…Ã∆∑±‡∫≈£∫");
         goods_no = scan.nextLine();
         if (findGoodsInfo(goods_no) == 0) {
@@ -129,7 +129,7 @@ public class TransAddPurchase extends TransAbs {
         }
     }
 
-    public void prtResult() {
+    public void printResult() {
         System.out.println(trans_result);
     }
 }
