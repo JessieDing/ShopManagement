@@ -48,7 +48,7 @@ public class TransAddGoods extends TransAbs {
 
 
         DataValidate validator = new DataValidate();
-        if (!validator.goodNoValidate(goods_no)) {
+        if (!validator.goodsNumberValidate(goods_no)) {
             setTrans_result("商品编号不合法");
             return -1;
         }
