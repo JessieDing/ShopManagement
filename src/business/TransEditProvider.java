@@ -1,4 +1,4 @@
-package busi;
+package business;
 
 public class TransEditProvider extends TransAbs {
 	String provider_no;// π©ªı…Ã±‡∫≈

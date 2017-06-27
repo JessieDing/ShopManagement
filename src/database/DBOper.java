@@ -1,6 +1,6 @@
-package db;
+package database;
 
-import busi.*;
+import business.*;
 
 import java.io.*;
 import java.util.ArrayList;

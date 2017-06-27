@@ -1,10 +1,10 @@
 package ui;
 
-import busi.Goods;
-import busi.Provider;
-import busi.TransFactory;
-import busi.TransInterface;
-import db.DBOper;
+import business.Goods;
+import business.Provider;
+import business.TransFactory;
+import business.TransInterface;
+import database.DBOper;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Scanner;

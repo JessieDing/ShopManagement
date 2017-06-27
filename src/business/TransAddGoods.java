@@ -1,4 +1,4 @@
-package busi;
+package business;
 
 public class TransAddGoods extends TransAbs {
     String goods_no;// …Ã∆∑±‡∫≈

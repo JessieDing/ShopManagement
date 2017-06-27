@@ -1,8 +1,8 @@
-package busi;
+package business;
 
 import java.util.Scanner;
 
-import db.DBOper;
+import database.DBOper;
 
 abstract public class TransAbs implements TransInterface {
 	String trans_result;// 每个交易处理结果

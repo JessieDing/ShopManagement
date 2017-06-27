@@ -1,4 +1,4 @@
-package busi;
+package business;
 
 public class SalesReport {
     private String goodsNumber;

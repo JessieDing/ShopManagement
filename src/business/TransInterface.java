@@ -1,6 +1,6 @@
-package busi;
+package business;
 
-import db.DBOper;
+import database.DBOper;
 
 public interface TransInterface {
 	// 1.提示输入信息
