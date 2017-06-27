@@ -12,10 +12,6 @@ public class Inventory {
     private double goodsPrice;// 进货价格
     private Date purchaseDate;// 进货日期
 
-    public Inventory() {
-        super();
-    }
-
     public Inventory(Purchase p) {
         super();
         this.goodsNumber = p.getGoodsNumber();
