@@ -17,7 +17,7 @@ public class TransAddSale extends TransAbs {
     public int findGoodsInfo(String no) {
         Inventory inventory = dbhelper.exactFindInventory(no);
         if (inventory == null) {
-            setTrans_result("库存记录中找不到该商品编号！");
+            setTransResult("库存记录中找不到该商品编号！");
             return -1;
         } else {
             System.out.println("该商品信息如下：");
@@ -43,14 +43,14 @@ public class TransAddSale extends TransAbs {
 
         goods_no = scan.next();
         if (goods_no == null) {
-            setTrans_result("获取商品编号错误");
+            setTransResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
         goods_name = scan.next();
         if (goods_name == null) {
-            setTrans_result("获取商品名称错误");
+            setTransResult("获取商品名称错误");
             return -1;
         }
 
@@ -59,19 +59,19 @@ public class TransAddSale extends TransAbs {
         sale_count = Integer.parseInt(count);
         Inventory inventory = dbhelper.exactFindInventory(goods_no);
         if (sale_count > inventory.getGoodsCount()) {
-            setTrans_result("库存不足！");
+            setTransResult("库存不足！");
             return -1;
         }
 
         goods_unit = scan.next();
         if (goods_unit == null) {
-            setTrans_result("获取商品单位错误");
+            setTransResult("获取商品单位错误");
             return -1;
         }
 
         sale_price = Double.parseDouble(scan.next());
         if (sale_price < inventory.getGoodsPrice()) {
-            setTrans_result("输入错误，售价小于进价！");
+            setTransResult("输入错误，售价小于进价！");
             return -1;
         }
 
@@ -103,11 +103,11 @@ public class TransAddSale extends TransAbs {
         sale.setSaleDate(sale_date);
         deleteInventory(sale);//从库存中删除
         if (getDbhelper().insertSale(sale) == 0) {
-            getDbhelper().prtAllSale();
-            setTrans_result("销售信息录入成功");
+            getDbhelper().printAllSale();
+            setTransResult("销售信息录入成功");
             return 0;
         } else {
-            setTrans_result("销售信息录入失败");
+            setTransResult("销售信息录入失败");
             return -1;
         }
 
@@ -125,6 +125,6 @@ public class TransAddSale extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(trans_result);
+        System.out.println(transResult);
     }
 }

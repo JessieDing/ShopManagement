@@ -30,35 +30,35 @@ public class TransEditProvider extends TransAbs {
 		// 供货商编号
 		provider_no = scan.next();
 		if (provider_no == null) {
-			setTrans_result("读取供货商编号错误");
+			setTransResult("读取供货商编号错误");
 			return -1;
 		}
 
 		// 供货商名称
 		provider_name = scan.next();
 		if (provider_name == null) {
-			setTrans_result("读取供货商名称错误");
+			setTransResult("读取供货商名称错误");
 			return -1;
 		}
 
 		// 供货商地址
 		provider_addr = scan.next();
 		if (provider_addr == null) {
-			setTrans_result("读取供货商地址错误");
+			setTransResult("读取供货商地址错误");
 			return -1;
 		}
 
 		// 供货商电话
 		provider_tel = scan.next();
 		if (provider_tel == null) {
-			setTrans_result("读取供货商电话错误");
+			setTransResult("读取供货商电话错误");
 			return -1;
 		}
 
 		// 供货商状态
 		provider_status = scan.next();
 		if (provider_status == null) {
-			setTrans_result("读取供货商状态错误");
+			setTransResult("读取供货商状态错误");
 			return -1;
 		}
 		return 0;
@@ -70,13 +70,13 @@ public class TransEditProvider extends TransAbs {
 		provider.setProviderAddress(provider_addr);
 		provider.setProviderTel(provider_tel);
 		provider.setProviderStatus(provider_status);
-		setTrans_result("修改成功");
+		setTransResult("修改成功");
 
 		return 0;
 	}
 
 	public void printResult() {
-		System.out.println(trans_result);
+		System.out.println(transResult);
 	}
 
 	public String getProvider_no() {

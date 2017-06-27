@@ -16,7 +16,7 @@ public class TransAddPurchase extends TransAbs {
     public int findGoodsInfo(String no) {
         Goods goods = dbhelper.exactFindGoods(no);
         if (goods == null) {
-            setTrans_result("找不到该商品编号！");
+            setTransResult("找不到该商品编号！");
             return -1;
         } else {
             System.out.println("该商品信息如下：");
@@ -43,14 +43,14 @@ public class TransAddPurchase extends TransAbs {
         // 读取商品编号
         goods_no = scan.next();
         if (goods_no == null) {
-            setTrans_result("获取商品编号错误");
+            setTransResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
         goods_name = scan.next();
         if (goods_name == null) {
-            setTrans_result("获取商品名称错误");
+            setTransResult("获取商品名称错误");
             return -1;
         }
 
@@ -58,14 +58,14 @@ public class TransAddPurchase extends TransAbs {
         String count = scan.next();
         goods_count = Integer.parseInt(count);
         if (goods_count == 0) {
-            setTrans_result("获取采购数量失败");
+            setTransResult("获取采购数量失败");
             return -1;
         }
 
         // 读取商品单位
         goods_unit = scan.next();
         if (goods_unit == null) {
-            setTrans_result("获取商品单位错误");
+            setTransResult("获取商品单位错误");
             return -1;
         }
 
@@ -73,7 +73,7 @@ public class TransAddPurchase extends TransAbs {
         String price = scan.next();
         goods_price = Double.parseDouble(price);
         if (goods_price == 0) {
-            setTrans_result("获取进货价格失败");
+            setTransResult("获取进货价格失败");
             return -1;
         }
 
@@ -92,7 +92,7 @@ public class TransAddPurchase extends TransAbs {
         // 读取供货商
         prvd = scan.next();
         if (prvd == null) {
-            setTrans_result("获取供货商失败");
+            setTransResult("获取供货商失败");
             return -1;
         }
 
@@ -110,11 +110,11 @@ public class TransAddPurchase extends TransAbs {
         purchase.setProvider(prvd);
         addInventory(purchase);// 添加库存(采购之后才有库存)
         if (getDbhelper().insertPurchase(purchase) == 0) {
-            dbhelper.prtAllPurchase();
-            setTrans_result("采购信息录入成功");
+            dbhelper.printAllPurchase();
+            setTransResult("采购信息录入成功");
             return 0;
         } else {
-            setTrans_result("采购信息录入失败");
+            setTransResult("采购信息录入失败");
             return -1;
         }
     }
@@ -130,6 +130,6 @@ public class TransAddPurchase extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(trans_result);
+        System.out.println(transResult);
     }
 }

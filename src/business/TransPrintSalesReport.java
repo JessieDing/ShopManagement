@@ -14,12 +14,12 @@ public class TransPrintSalesReport extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(trans_result);
+        System.out.println(transResult);
     }
 
     public int doTrans() {
 
-        List<Sale> sales = dbhelper.getSale_list();
+        List<Sale> sales = dbhelper.getSaleList();
         List<SalesReport> reports = new ArrayList<>();
         for (Sale sale : sales) {
             SalesReport report = new SalesReport();
@@ -53,7 +53,7 @@ public class TransPrintSalesReport extends TransAbs {
         System.out.println("\t\t\t\t\t\t总销量：" + totalNumber);
         System.out.println("\t\t\t\t\t\t总销售额：" + totalAmount);
         System.out.println("\t\t\t\t\t\t总利润：" + totalProfits);
-        setTrans_result("\t\t\t\t\t\t销售报表打印完毕");
+        setTransResult("\t\t\t\t\t\t销售报表打印完毕");
         System.out.println("________________________________________________________________");
         return 0;
     }

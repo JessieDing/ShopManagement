@@ -4,7 +4,7 @@ import business.Goods;
 import business.Provider;
 import business.TransFactory;
 import business.TransInterface;
-import database.DBOper;
+import database.DatabaseOperator;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class ShopManagementMain {
         // 3.客户完成输入后，从界面读取客户输入的数据
         // 4.执行该交易，并且打印执行结果
         Scanner scan = new Scanner(System.in);
-        DBOper dbhelper = new DBOper();// 数据操作对象
+        DatabaseOperator dbhelper = new DatabaseOperator();// 数据操作对象
 //		initTestData(dbhelper);
         dbhelper.loadAllGoods();
         while (true) {
@@ -54,7 +54,7 @@ public class ShopManagementMain {
         System.out.println("系统正常退出");
     }
 
-    private static void initTestData(DBOper dbhelper) throws ParseException {
+    private static void initTestData(DatabaseOperator dbhelper) throws ParseException {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, 2016);
         c.set(Calendar.MONTH, 11);

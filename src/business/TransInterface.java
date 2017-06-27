@@ -1,6 +1,6 @@
 package business;
 
-import database.DBOper;
+import database.DatabaseOperator;
 
 public interface TransInterface {
 	// 1.提示输入信息
@@ -15,5 +15,5 @@ public interface TransInterface {
 
 	public void printResult();
 
-	public void setDbhelper(DBOper dbhelper);
+	public void setDbhelper(DatabaseOperator dbhelper);
 }

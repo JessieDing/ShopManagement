@@ -29,7 +29,7 @@ public class TransQueryProvider extends TransAbs {
 		// 读取查询方式
 		query_type = scan.next();
 		if (query_type == null) {
-			setTrans_result("获取查询方式失败");
+			setTransResult("获取查询方式失败");
 			return -1;
 		} else if (query_type.equals("0")) {// 全部查询不需要读取剩余的参数
 			return 0;
@@ -38,13 +38,13 @@ public class TransQueryProvider extends TransAbs {
 		// 供货商编号
 		provider_no = scan.next();
 		if (provider_no == null) {
-			setTrans_result("读取商品编号错误");
+			setTransResult("读取商品编号错误");
 			return -1;
 		}
 
 		provider_name = scan.next();
 		if (provider_name == null) {
-			setTrans_result("读取商品名称错误");
+			setTransResult("读取商品名称错误");
 			return -1;
 		}
 		return 0;
@@ -52,17 +52,17 @@ public class TransQueryProvider extends TransAbs {
 
 	public int doTrans() {
 		if (query_type.equals("0")) {// 全部查询
-			getDbhelper().prtAllProvider();
-			setTrans_result("查询完成");
+			getDbhelper().printAllProvider();
+			setTransResult("查询完成");
 			return 0;
 		} else if (query_type.equals("1")) {// 精确查询
 			Provider provider = dbhelper.exactFindProvider(provider_no);
 			if (provider != null) {
 				System.out.println(provider.toString());
-				setTrans_result("精确查询完成");
+				setTransResult("精确查询完成");
 				return 0;
 			} else {
-				setTrans_result("没有查到相关信息！");
+				setTransResult("没有查到相关信息！");
 				return -1;
 			}
 		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
@@ -74,7 +74,7 @@ public class TransQueryProvider extends TransAbs {
 				}
 				return 0;
 			} else {
-				setTrans_result("没有查到相关信息！");
+				setTransResult("没有查到相关信息！");
 				return -1;
 			}
 
@@ -83,7 +83,7 @@ public class TransQueryProvider extends TransAbs {
 	}
 
 	public void printResult() {
-		System.out.println(trans_result);
+		System.out.println(transResult);
 	}
 
 	public String getQuery_type() {
