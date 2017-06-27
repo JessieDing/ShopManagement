@@ -23,22 +23,6 @@ public class Sale {
 		this.saleDate = saleDate;
 	}
 
-	public int addSale() {
-		return 0;
-	}
-
-	public int editSales() {
-		return 0;
-	}
-
-	public int delSale() {
-		return 0;
-	}
-
-	public int querySale() {
-		return 0;
-	}
-
 	public String getGoodsNumber() {
 		return goodsNumber;
 	}

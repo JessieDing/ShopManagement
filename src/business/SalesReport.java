@@ -8,7 +8,7 @@ public class SalesReport {
     private int saleAmount;
     private double profits;
 
-    public SalesReport() {
+    SalesReport() {
         super();
     }
 
@@ -23,16 +23,12 @@ public class SalesReport {
         this.profits = profits;
     }
 
-    public double calcTotalAmount() {
-        double totalAmount = 0.00;
-        totalAmount = salePrice * saleAmount;
-        return totalAmount;
+    double calcTotalAmount() {
+        return salePrice * saleAmount;
     }
 
-    public double calcProfits() {
-        double profits = 0.00;
-        profits = (salePrice - purchasePrice) * (double) saleAmount;
-        return profits;
+    double calcProfits() {
+        return (salePrice - purchasePrice) * (double) saleAmount;
     }
 
     public String getGoodsNumber() {

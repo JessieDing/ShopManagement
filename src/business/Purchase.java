@@ -29,10 +29,6 @@ public class Purchase {
         this.provider = provider;
     }
 
-    public int addPurchaser() {
-        return 0;
-    }
-
     public String getGoodsNumber() {
         return goodsNumber;
     }
