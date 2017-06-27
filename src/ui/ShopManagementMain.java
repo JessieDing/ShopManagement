@@ -5,7 +5,6 @@ import busi.Provider;
 import busi.TransFactory;
 import busi.TransInterface;
 import db.DBOper;
-
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Scanner;
@@ -13,7 +12,6 @@ import java.util.Scanner;
 public class ShopManagementMain {
 
     public static void main(String[] args) throws ParseException {
-
         // 1.首先打印菜单主界面
         // 2.客户选择交易后，进入各个交易对应的操作/提示界面
         // 3.客户完成输入后，从界面读取客户输入的数据
