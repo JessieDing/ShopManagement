@@ -17,9 +17,9 @@ public class ShopManagementMain {
         // 3.客户完成输入后，从界面读取客户输入的数据
         // 4.执行该交易，并且打印执行结果
         Scanner scan = new Scanner(System.in);
-        DatabaseOperator dbhelper = new DatabaseOperator();// 数据操作对象
+        DatabaseOperator databaseOperator = new DatabaseOperator();// 数据操作对象
 //		initTestData(dbhelper);
-        dbhelper.loadAllGoods();
+        databaseOperator.loadAllGoods();
         while (true) {
             prtMainMenu(); // 打印主菜单
             String strTrans = scan.next();// 读取交易
@@ -31,7 +31,7 @@ public class ShopManagementMain {
             TransFactory tFactory = new TransFactory();
             trans = tFactory.createTrans(strTrans);
             if (trans != null) {
-                trans.setDbhelper(dbhelper);
+                trans.setDbhelper(databaseOperator);
                 trans.printPrompt();// 打印交易提示信息
                 if (trans.getInput() != 0) {// 读取输入的数据
                     trans.printResult();
@@ -39,10 +39,8 @@ public class ShopManagementMain {
                 } else {
                     if (trans.doTrans() != 0) {
                         trans.printResult();
-                        continue;
                     } else {
                         trans.printResult();
-                        continue;
                     }
                 }
             } else {
@@ -54,7 +52,7 @@ public class ShopManagementMain {
         System.out.println("系统正常退出");
     }
 
-    private static void initTestData(DatabaseOperator dbhelper) throws ParseException {
+    private static void initTestData(DatabaseOperator databaseOperator) throws ParseException {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, 2016);
         c.set(Calendar.MONTH, 11);
@@ -65,18 +63,18 @@ public class ShopManagementMain {
         Goods g2 = new Goods("00020002", "华为麦芒", "部", "0", 120);
         Goods g3 = new Goods("00030003", "Iphone7", "部", "0", 120);
         Goods g4 = new Goods("00040004", "红米2", "部", "0", 120);
-        dbhelper.insertGoods(g1);
-        dbhelper.insertGoods(g2);
-        dbhelper.insertGoods(g3);
-        dbhelper.insertGoods(g4);
+        databaseOperator.insertGoods(g1);
+        databaseOperator.insertGoods(g2);
+        databaseOperator.insertGoods(g3);
+        databaseOperator.insertGoods(g4);
         Provider p1 = new Provider("0001", "迅捷通讯", "天府三街", "02811111111", "0");
         Provider p2 = new Provider("0002", "迪信通", "天府二街", "02822222222", "0");
         Provider p3 = new Provider("0003", "赛格", "太升南路", "02833333333", "0");
         Provider p4 = new Provider("0004", "新世界", "天府五街", "02844444444", "0");
-        dbhelper.insertProvider(p1);
-        dbhelper.insertProvider(p2);
-        dbhelper.insertProvider(p3);
-        dbhelper.insertProvider(p4);
+        databaseOperator.insertProvider(p1);
+        databaseOperator.insertProvider(p2);
+        databaseOperator.insertProvider(p3);
+        databaseOperator.insertProvider(p4);
         // 采购 测试数据
 //		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 //		Purchase purchase1 = new Purchase("00010001", "华为P8", 8, "部", 2000, dateFormat.parse("2017-03-13"), "迪信通");

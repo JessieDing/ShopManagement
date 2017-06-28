@@ -25,10 +25,10 @@ public class DatabaseOperator {
         goodsFile = "e:" + File.separator + "Goods_info.txt";
     }
 
-    public void addInventoryGoodsCount(String goodsNo, int addAmoumt) {
+    public void addInventoryGoodsCount(String goodsNo, int addAmount) {
         for (Inventory i : inventoryList) {
             if (i.getGoodsNumber().equals(goodsNo)) {
-                i.setGoodsCount(addAmoumt);// addAmount =
+                i.setGoodsCount(addAmount);// addAmount =
                 // inventoryAmt+purchaseAmt
                 break;
             }
