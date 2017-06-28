@@ -3,7 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransPrintSalesReport extends TransAbs {
+class TransPrintSalesReport extends TransAbs {
 
     public void printPrompt() {
         System.out.println("打印销售报表");
@@ -18,8 +18,7 @@ public class TransPrintSalesReport extends TransAbs {
     }
 
     public int doTrans() {
-
-        List<Sale> sales = dbhelper.getSaleList();
+        List<Sale> sales = databaseOperator.getSaleList();
         List<SalesReport> reports = new ArrayList<>();
         for (Sale sale : sales) {
             SalesReport report = new SalesReport();
@@ -27,7 +26,7 @@ public class TransPrintSalesReport extends TransAbs {
             report.setGoodsNumber(sale.getGoodsNumber());
             report.setSalePrice(sale.getPrice());
             report.setSaleAmount(sale.getSaleAmount());
-            Purchase purchase = dbhelper.exactFindPurchase(sale.getGoodsNumber());
+            Purchase purchase = databaseOperator.exactFindPurchase(sale.getGoodsNumber());
             report.setPurchasePrice(purchase.getPurchasePrice());
             report.setProfits(report.calcProfits());
             reports.add(report);
@@ -41,9 +40,8 @@ public class TransPrintSalesReport extends TransAbs {
         int totalNumber = 0;
         double totalProfits = 0;
         for (SalesReport report : reports) {
-            double rowSales = 0.00;
             System.out.println(report.toString());// 逐条打印sales
-            rowSales = report.calcTotalAmount();// 计算每条销售情况的总销售额
+            double rowSales = report.calcTotalAmount();// 计算每条销售情况的总销售额
             totalAmount += rowSales;
             totalNumber += report.getSaleAmount();
             totalProfits += report.getProfits();

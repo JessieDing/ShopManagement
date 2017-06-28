@@ -34,7 +34,7 @@ public class TransAddGoods extends TransAbs {
         }
 
         // 判断商品编号是否重复
-        if (dbhelper.exactFindGoods(goods_no) != null) {
+        if (databaseOperator.exactFindGoods(goods_no) != null) {
             setTransResult("商品编号已存在");
             return -1;
         }
@@ -67,9 +67,9 @@ public class TransAddGoods extends TransAbs {
         g.setGoodsUnit(goods_unit);// 赋值商品单位
         g.setGoodsStatus("0");// 新增商品，默认状态为0有效
         g.setQualityDays(quality_days);
-        if (getDbhelper().insertGoods(g) == 0) {
+        if (getDatabaseOperator().insertGoods(g) == 0) {
             setTransResult("新增商品成功");
-            dbhelper.writeGoodsInfo(dbhelper.getGoodsFile(), g.toFileString());//System.getProperty("line.separator")
+            databaseOperator.writeGoodsInfo(databaseOperator.getGoodsFile(), g.toFileString());//System.getProperty("line.separator")
             return 0;
         } else {
             setTransResult("新增商品失败");

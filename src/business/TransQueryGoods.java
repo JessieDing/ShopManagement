@@ -46,11 +46,11 @@ class TransQueryGoods extends TransAbs {
 	public int doTrans() {
 		switch (queryType) {
 			case "0": // 全部查询
-				getDbhelper().printAllGoods();
+				getDatabaseOperator().printAllGoods();
 				setTransResult("查询完成");
 				return 0;
 			case "1": // 精确查询
-				Goods goods = dbhelper.exactFindGoods(goodsNumber);
+				Goods goods = databaseOperator.exactFindGoods(goodsNumber);
 				if (goods != null) {
 					System.out.println(goods.toString());
 					setTransResult("精确查询完成");
@@ -61,8 +61,8 @@ class TransQueryGoods extends TransAbs {
 				}
 			case "2": // 模糊查询（目前只能查一个）
 
-				if (dbhelper.fuzFindGoods(goodsName) != null) {
-					List<Goods> list = dbhelper.fuzFindGoods(goodsName);
+				if (databaseOperator.fuzFindGoods(goodsName) != null) {
+					List<Goods> list = databaseOperator.fuzFindGoods(goodsName);
 					for (Goods g : list) {
 						System.out.println(g.toString());
 					}

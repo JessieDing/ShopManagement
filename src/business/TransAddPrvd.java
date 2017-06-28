@@ -38,7 +38,7 @@ public class TransAddPrvd extends TransAbs {
 		}
 
 		// 判断供应商编号是否重复
-		if (dbhelper.exactFindProvider(provider_no) != null) {
+		if (databaseOperator.exactFindProvider(provider_no) != null) {
 			setTransResult("供应商编号已存在！");
 			return -1;
 		}
@@ -68,7 +68,7 @@ public class TransAddPrvd extends TransAbs {
 		p.setProviderName(provider_name);
 		p.setProviderAddress(provider_addr);
 		p.setProviderTel(provider_tel);
-		if (getDbhelper().insertProvider(p) == 0) {
+		if (getDatabaseOperator().insertProvider(p) == 0) {
 			setTransResult("新增供货商成功");
 			return 0;
 		} else {

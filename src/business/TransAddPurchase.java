@@ -14,7 +14,7 @@ public class TransAddPurchase extends TransAbs {
     String prvd;// 供货商
 
     public int findGoodsInfo(String no) {
-        Goods goods = dbhelper.exactFindGoods(no);
+        Goods goods = databaseOperator.exactFindGoods(no);
         if (goods == null) {
             setTransResult("找不到该商品编号！");
             return -1;
@@ -109,8 +109,8 @@ public class TransAddPurchase extends TransAbs {
         purchase.setPurchaseDate(purchase_date);
         purchase.setProvider(prvd);
         addInventory(purchase);// 添加库存(采购之后才有库存)
-        if (getDbhelper().insertPurchase(purchase) == 0) {
-            dbhelper.printAllPurchase();
+        if (getDatabaseOperator().insertPurchase(purchase) == 0) {
+            databaseOperator.printAllPurchase();
             setTransResult("采购信息录入成功");
             return 0;
         } else {
@@ -120,10 +120,10 @@ public class TransAddPurchase extends TransAbs {
     }
 
     private void addInventory(Purchase purchase) {
-        Inventory inventory = dbhelper.exactFindInventory(purchase.getGoodsNumber());
+        Inventory inventory = databaseOperator.exactFindInventory(purchase.getGoodsNumber());
         if (inventory == null) {
             inventory = new Inventory(purchase);
-            dbhelper.insertInventory(inventory);
+            databaseOperator.insertInventory(inventory);
         } else {
             inventory.setGoodsCount(inventory.getGoodsCount() + purchase.getPurchaseAmount());
         }

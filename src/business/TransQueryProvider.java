@@ -45,11 +45,11 @@ class TransQueryProvider extends TransAbs {
     public int doTrans() {
         switch (queryType) {
             case "0": // 全部查询
-                getDbhelper().printAllProvider();
+                getDatabaseOperator().printAllProvider();
                 setTransResult("查询完成");
                 return 0;
             case "1": // 精确查询
-                Provider provider = dbhelper.exactFindProvider(providerNumber);
+                Provider provider = databaseOperator.exactFindProvider(providerNumber);
                 if (provider != null) {
                     System.out.println(provider.toString());
                     setTransResult("精确查询完成");
@@ -59,8 +59,8 @@ class TransQueryProvider extends TransAbs {
                     return -1;
                 }
             case "2": // 模糊查询（目前只能查一个）
-                if (dbhelper.fuzFindProvider(providerName) != null) {
-                    List<Provider> list = dbhelper.fuzFindProvider(providerName);
+                if (databaseOperator.fuzFindProvider(providerName) != null) {
+                    List<Provider> list = databaseOperator.fuzFindProvider(providerName);
                     for (Provider p : list) {
                         System.out.println(p.toString());
                     }

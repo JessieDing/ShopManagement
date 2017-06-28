@@ -32,7 +32,7 @@ public class ShopManagementMain {
             TransFactory tFactory = new TransFactory();
             trans = tFactory.createTrans(strTrans);
             if (trans != null) {
-                trans.setDbhelper(databaseOperator);
+                trans.setDatabaseOperator(databaseOperator);
                 trans.printPrompt();// 打印交易提示信息
                 if (trans.getInput() != 0) {// 读取输入的数据
                     trans.printResult();

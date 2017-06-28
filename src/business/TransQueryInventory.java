@@ -42,11 +42,11 @@ class TransQueryInventory extends TransAbs {
 	public int doTrans() {
 		switch (queryType) {
 			case "0": // 全部查询
-				getDbhelper().printAllInventory();
+				getDatabaseOperator().printAllInventory();
 				setTransResult("查询完成");
 				return 0;
 			case "1": // 精确查询
-				Inventory inventory = dbhelper.exactFindInventory(goodsNumber);
+				Inventory inventory = databaseOperator.exactFindInventory(goodsNumber);
 				if (inventory != null) {
 					System.out.println(inventory.toString());
 					setTransResult("精确查询完成");
@@ -57,8 +57,8 @@ class TransQueryInventory extends TransAbs {
 				}
 			case "2": // 模糊查询
 
-				if (dbhelper.fuzFindInventory(goodsName) != null) {
-					List<Inventory> list = dbhelper.fuzFindInventory(goodsName);
+				if (databaseOperator.fuzFindInventory(goodsName) != null) {
+					List<Inventory> list = databaseOperator.fuzFindInventory(goodsName);
 					for (Inventory i : list) {
 						System.out.println(i.toString());
 					}

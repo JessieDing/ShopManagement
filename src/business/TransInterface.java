@@ -15,5 +15,5 @@ public interface TransInterface {
 
 	public void printResult();
 
-	public void setDbhelper(DatabaseOperator dbhelper);
+	public void setDatabaseOperator(DatabaseOperator databaseOperator);
 }

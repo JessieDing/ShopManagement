@@ -7,7 +7,7 @@ import java.util.Scanner;
 abstract public class TransAbs implements TransInterface {
     String transResult;// 每个交易处理结果
     Scanner scan;
-    DatabaseOperator dbhelper;// 数据存取对象
+    DatabaseOperator databaseOperator;// 数据存取对象
 
     public TransAbs() {
         scan = new Scanner(System.in);
@@ -17,12 +17,12 @@ abstract public class TransAbs implements TransInterface {
         System.out.println(transResult);
     }
 
-    public DatabaseOperator getDbhelper() {
-        return dbhelper;
+    public DatabaseOperator getDatabaseOperator() {
+        return databaseOperator;
     }
 
-    public void setDbhelper(DatabaseOperator dbhelper) {
-        this.dbhelper = dbhelper;
+    public void setDatabaseOperator(DatabaseOperator databaseOperator) {
+        this.databaseOperator = databaseOperator;
     }
 
     public String getTransResult() {

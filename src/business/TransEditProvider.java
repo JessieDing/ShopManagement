@@ -65,7 +65,7 @@ public class TransEditProvider extends TransAbs {
 	}
 
 	public int doTrans() {
-		Provider provider = dbhelper.exactFindProvider(provider_no);
+		Provider provider = databaseOperator.exactFindProvider(provider_no);
 		provider.setProviderName(provider_name);
 		provider.setProviderAddress(provider_addr);
 		provider.setProviderTel(provider_tel);

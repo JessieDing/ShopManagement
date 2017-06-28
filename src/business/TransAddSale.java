@@ -15,7 +15,7 @@ public class TransAddSale extends TransAbs {
 
 
     public int findGoodsInfo(String no) {
-        Inventory inventory = dbhelper.exactFindInventory(no);
+        Inventory inventory = databaseOperator.exactFindInventory(no);
         if (inventory == null) {
             setTransResult("库存记录中找不到该商品编号！");
             return -1;
@@ -57,7 +57,7 @@ public class TransAddSale extends TransAbs {
         // 读取销售数量
         String count = scan.next();
         sale_count = Integer.parseInt(count);
-        Inventory inventory = dbhelper.exactFindInventory(goods_no);
+        Inventory inventory = databaseOperator.exactFindInventory(goods_no);
         if (sale_count > inventory.getGoodsCount()) {
             setTransResult("库存不足！");
             return -1;
@@ -102,8 +102,8 @@ public class TransAddSale extends TransAbs {
         sale.setSaleAmount(sale_count);
         sale.setSaleDate(sale_date);
         deleteInventory(sale);//从库存中删除
-        if (getDbhelper().insertSale(sale) == 0) {
-            getDbhelper().printAllSale();
+        if (getDatabaseOperator().insertSale(sale) == 0) {
+            getDatabaseOperator().printAllSale();
             setTransResult("销售信息录入成功");
             return 0;
         } else {
@@ -114,7 +114,7 @@ public class TransAddSale extends TransAbs {
     }
 
     private void deleteInventory(Sale sale) {
-        Inventory inventory = dbhelper.exactFindInventory(sale.getGoodsNumber());
+        Inventory inventory = databaseOperator.exactFindInventory(sale.getGoodsNumber());
         if (inventory == null) {
             System.out.println("库存不足");
         } else if (inventory.getGoodsCount() < sale.getSaleAmount()) {
