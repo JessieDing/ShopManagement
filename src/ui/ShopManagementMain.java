@@ -5,6 +5,7 @@ import business.Provider;
 import business.TransFactory;
 import business.TransInterface;
 import database.DatabaseOperator;
+
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Scanner;
@@ -18,10 +19,10 @@ public class ShopManagementMain {
         // 4.执行该交易，并且打印执行结果
         Scanner scan = new Scanner(System.in);
         DatabaseOperator databaseOperator = new DatabaseOperator();// 数据操作对象
-//		initTestData(dbhelper);
+//		initTestData(databaseOperator);
         databaseOperator.loadAllGoods();
         while (true) {
-            prtMainMenu(); // 打印主菜单
+            printMainMenu(); // 打印主菜单
             String strTrans = scan.next();// 读取交易
             if (strTrans.equalsIgnoreCase("q")) {
                 break;
@@ -99,7 +100,7 @@ public class ShopManagementMain {
         // 添加测试数据结束
     }
 
-    public static void prtMainMenu() {
+    private static void printMainMenu() {
         System.out.println();
         System.out.println("****************商品进销存系统*****************");
         System.out.println("\t1-添加商品信息\t2-修改商品信息");
