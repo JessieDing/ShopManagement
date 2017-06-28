@@ -3,17 +3,17 @@ package business;
 import database.DatabaseOperator;
 
 public interface TransInterface {
-	// 1.提示输入信息
-	// 2.从界面读取输入的数据
-	// 3.处理交易
-	// 4.显示交易处理结果
-	public void printPrompt();
+    // 1.提示输入信息
+    // 2.从界面读取输入的数据
+    // 3.处理交易
+    // 4.显示交易处理结果
+    void printPrompt();
 
-	public int getInput();
+    int getInput();
 
-	public int doTrans();
+    int doTrans();
 
-	public void printResult();
+    void printResult();
 
-	public void setDatabaseOperator(DatabaseOperator databaseOperator);
+    void setDatabaseOperator(DatabaseOperator databaseOperator);
 }
