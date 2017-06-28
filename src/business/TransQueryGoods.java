@@ -2,48 +2,41 @@ package business;
 
 import java.util.List;
 
-public class TransQueryGoods extends TransAbs {
-	String query_type;// 查询方式
-	String goods_no;// 商品编号
-	String goods_name;// 商品名称
+class TransQueryGoods extends TransAbs {
+	private String queryType;// 查询方式
+	private String goodsNumber;// 商品编号
+	private String goodsName;// 商品名称
 
-	public TransQueryGoods() {
+	TransQueryGoods() {
 		super();
-	}
-
-	public TransQueryGoods(String query_type, String goods_no, String goods_name) {
-		super();
-		this.query_type = query_type;
-		this.goods_no = goods_no;
-		this.goods_name = goods_name;
 	}
 
 	public void printPrompt() {
 		System.out.println("查询商品|请输入以下信息：");
-		System.out.println("@query_type @goods_no @goods_name");
-		System.out.println("query_type：0-全部查询  1-精确查询   2-模糊查询");
+		System.out.println("@queryType @goodsNumber @goodsName");
+		System.out.println("queryType：0-全部查询  1-精确查询   2-模糊查询");
 	}
 
 	public int getInput() {
 		// 读取查询方式
-		query_type = scan.next();
-		if (query_type == null) {
+		queryType = scan.next();
+		if (queryType == null) {
 			setTransResult("获取查询方式失败");
 			return -1;
-		} else if (query_type.equals("0")) {// 全部查询不需要读取剩余的参数
+		} else if (queryType.equals("0")) {// 全部查询不需要读取剩余的参数
 			return 0;
 		}
 
 		// 商品编号
-		goods_no = scan.next();
-		if (goods_no == null) {
+		goodsNumber = scan.next();
+		if (goodsNumber == null) {
 			setTransResult("读取商品编号错误");
 			return -1;
 		}
 
 		// 商品名称
-		goods_name = scan.next();
-		if (goods_name == null) {
+		goodsName = scan.next();
+		if (goodsName == null) {
 			setTransResult("读取商品名称错误");
 			return -1;
 		}
@@ -51,32 +44,33 @@ public class TransQueryGoods extends TransAbs {
 	}
 
 	public int doTrans() {
-		if (query_type.equals("0")) {// 全部查询
-			getDbhelper().printAllGoods();
-			setTransResult("查询完成");
-			return 0;
-		} else if (query_type.equals("1")) {// 精确查询
-			Goods goods = dbhelper.exactFindGoods(goods_no);
-			if (goods != null) {
-				System.out.println(goods.toString());
-				setTransResult("精确查询完成");
+		switch (queryType) {
+			case "0": // 全部查询
+				getDbhelper().printAllGoods();
+				setTransResult("查询完成");
 				return 0;
-			} else {
-				setTransResult("没有查到相关信息！");
-				return -1;
-			}
-		} else if (query_type.equals("2")) {// 模糊查询（目前只能查一个）
-
-			if (dbhelper.fuzFindGoods(goods_name) != null) {
-				List<Goods> list = dbhelper.fuzFindGoods(goods_name);
-				for (Goods g : list) {
-					System.out.println(g.toString());
+			case "1": // 精确查询
+				Goods goods = dbhelper.exactFindGoods(goodsNumber);
+				if (goods != null) {
+					System.out.println(goods.toString());
+					setTransResult("精确查询完成");
+					return 0;
+				} else {
+					setTransResult("没有查到相关信息！");
+					return -1;
 				}
-				return 0;
-			} else {
-				setTransResult("没有查到相关信息！");
-				return -1;
-			}
+			case "2": // 模糊查询（目前只能查一个）
+
+				if (dbhelper.fuzFindGoods(goodsName) != null) {
+					List<Goods> list = dbhelper.fuzFindGoods(goodsName);
+					for (Goods g : list) {
+						System.out.println(g.toString());
+					}
+					return 0;
+				} else {
+					setTransResult("没有查到相关信息！");
+					return -1;
+				}
 
 		}
 		return 0;
@@ -86,28 +80,27 @@ public class TransQueryGoods extends TransAbs {
 		System.out.println(transResult);
 	}
 
-	public String getQuery_type() {
-		return query_type;
+	public String getQueryType() {
+		return queryType;
 	}
 
-	public void setQuery_type(String query_type) {
-		this.query_type = query_type;
+	public void setQueryType(String queryType) {
+		this.queryType = queryType;
 	}
 
-	public String getGoods_no() {
-		return goods_no;
+	public String getGoodsNumber() {
+		return goodsNumber;
 	}
 
-	public void setGoods_no(String goods_no) {
-		this.goods_no = goods_no;
+	public void setGoodsNumber(String goodsNumber) {
+		this.goodsNumber = goodsNumber;
 	}
 
-	public String getGoods_name() {
-		return goods_name;
+	public String getGoodsName() {
+		return goodsName;
 	}
 
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
 	}
-
 }
