@@ -59,7 +59,7 @@ public class TransAddGoods extends TransAbs {
         return 0;
     }
 
-    public int doTrans() {
+    public int process() {
         Goods g = new Goods();
         g.setGoodsNumber(goodsNumber);// 把用户输入的商品编号赋值给Goods对象
         g.setGoodsName(goodsName);// 赋值商品名称

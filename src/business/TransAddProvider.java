@@ -62,7 +62,7 @@ class TransAddProvider extends TransAbs {
 		return 0;
 	}
 
-	public int doTrans() {
+	public int process() {
 		Provider p = new Provider();
 		p.setProviderNumber(providerNumber);
 		p.setProviderName(providerName);

@@ -2,7 +2,7 @@ package business;
 
 import database.DatabaseOperator;
 
-public interface TransInterface {
+public interface Transaction {
     // 1.提示输入信息
     // 2.从界面读取输入的数据
     // 3.处理交易
@@ -11,7 +11,7 @@ public interface TransInterface {
 
     int getInput();
 
-    int doTrans();
+    int process();
 
     void printResult();
 

@@ -53,7 +53,7 @@ class TransEditGoods extends TransAbs {
         return 0;
     }
 
-    public int doTrans() {
+    public int process() {
         Goods goods = databaseOperator.exactFindGoods(goodsNumber);
         goods.setGoodsName(goodsName);
         goods.setGoodsUnit(goodsUnit);

@@ -17,7 +17,7 @@ class TransPrintSalesReport extends TransAbs {
         System.out.println(transResult);
     }
 
-    public int doTrans() {
+    public int process() {
         List<Sale> sales = databaseOperator.getSaleList();
         List<SalesReport> reports = new ArrayList<>();
         for (Sale sale : sales) {

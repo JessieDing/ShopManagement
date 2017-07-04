@@ -89,7 +89,7 @@ class TransAddSale extends TransAbs {
         return 0;
     }
 
-    public int doTrans() {
+    public int process() {
         Sale sale = new Sale();
         sale.setGoodsNumber(goodsNumber);
         sale.setGoodsName(goodsName);

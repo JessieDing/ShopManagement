@@ -3,7 +3,7 @@ package ui;
 import business.Goods;
 import business.Provider;
 import business.TransFactory;
-import business.TransInterface;
+import business.Transaction;
 import database.DatabaseOperator;
 
 import java.text.ParseException;
@@ -28,7 +28,7 @@ public class ShopManagementMain {
                 break;
             }
 
-            TransInterface trans;
+            Transaction trans;
             TransFactory tFactory = new TransFactory();
             trans = tFactory.createTrans(strTrans);
             if (trans != null) {
@@ -38,7 +38,7 @@ public class ShopManagementMain {
                     trans.printResult();
                     System.out.println("获取输入数据失败");
                 } else {
-                    if (trans.doTrans() != 0) {
+                    if (trans.process() != 0) {
                         trans.printResult();
                     } else {
                         trans.printResult();

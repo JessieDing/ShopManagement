@@ -42,7 +42,7 @@ class TransQueryProvider extends TransAbs {
         return 0;
     }
 
-    public int doTrans() {
+    public int process() {
         switch (queryType) {
             case "0": // È«²¿²éÑ¯
                 getDatabaseOperator().printAllProvider();

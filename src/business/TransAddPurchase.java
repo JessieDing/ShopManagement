@@ -83,7 +83,7 @@ class TransAddPurchase extends TransAbs {
         return 0;
     }
 
-    public int doTrans() {
+    public int process() {
         Purchase purchase = new Purchase();
         purchase.setGoodsNumber(goodsNumber);
         purchase.setGoodsName(goodsName);

@@ -2,8 +2,8 @@ package business;
 
 public class TransFactory {
 
-    public TransInterface createTrans(String strTrans) {
-        TransInterface trans = null;
+    public Transaction createTrans(String strTrans) {
+        Transaction trans = null;
         switch (strTrans) {
             case "1": // 添加商品信息交易
                 trans = new TransAddGoods();

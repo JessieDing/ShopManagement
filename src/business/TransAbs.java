@@ -4,7 +4,7 @@ import database.DatabaseOperator;
 
 import java.util.Scanner;
 
-abstract public class TransAbs implements TransInterface {
+abstract public class TransAbs implements Transaction {
     String transResult;// 每个交易处理结果
     Scanner scan;
     DatabaseOperator databaseOperator;// 数据存取对象
