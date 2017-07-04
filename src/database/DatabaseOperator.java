@@ -5,6 +5,7 @@ import business.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DatabaseOperator {
     private String goodsFile;
@@ -45,36 +46,36 @@ public class DatabaseOperator {
     }
 
     public Goods exactFindGoods(String no) {
-        for (Goods g : goodsList) {
-            if (g.getGoodsNumber().equals(no)) {
-                return g;
+        for (Goods good : goodsList) {
+            if (good.getGoodsNumber().equals(no)) {
+                return good;
             }
         }
         return null;
     }
 
     public Provider exactFindProvider(String no) {
-        for (Provider p : providerList) {
-            if (p.getProviderNumber().equals(no)) {
-                return p;
+        for (Provider provider : providerList) {
+            if (provider.getProviderNumber().equals(no)) {
+                return provider;
             }
         }
         return null;
     }
 
     public Purchase exactFindPurchase(String no) {
-        for (Purchase p : purchaseList) {
-            if (p.getGoodsNumber().equals(no)) {
-                return p;
+        for (Purchase purchase : purchaseList) {
+            if (purchase.getGoodsNumber().equals(no)) {
+                return purchase;
             }
         }
         return null;
     }
 
     public Sale exactFindSale(String no) {
-        for (Sale s : saleList) {
-            if (s.getGoodsNumber().equals(no)) {
-                return s;
+        for (Sale sale : saleList) {
+            if (sale.getGoodsNumber().equals(no)) {
+                return sale;
             }
         }
         return null;
@@ -90,37 +91,19 @@ public class DatabaseOperator {
     }
 
     public List<Goods> fuzFindGoods(String str) {
-        List<Goods> list = new ArrayList<Goods>();
-        for (Goods g : goodsList) {
-            if (g.getGoodsName().contains(str)) {
-                list.add(g);
-            }
-        }
-        return list;
+        return goodsList.stream().filter(g -> g.getGoodsName().contains(str)).collect(Collectors.toList());
     }
 
     public List<Provider> fuzFindProvider(String str) {
-        List<Provider> list = new ArrayList<Provider>();
-        for (Provider p : providerList) {
-            if (p.getProviderName().contains(str)) {
-                list.add(p);
-            }
-        }
-        return list;
+        return providerList.stream().filter(p -> p.getProviderName().contains(str)).collect(Collectors.toList());
     }
 
     public List<Inventory> fuzFindInventory(String str) {
-        List<Inventory> list = new ArrayList<Inventory>();
-        for (Inventory i : inventoryList) {
-            if (i.getGoodsName().contains(str)) {
-                list.add(i);
-            }
-        }
-        return list;
+        return inventoryList.stream().filter(i -> i.getGoodsName().contains(str)).collect(Collectors.toList());
     }
 
-    public int insertGoods(Goods g) {
-        goodsList.add(g);
+    public int insertGoods(Goods goods) {
+        goodsList.add(goods);
         return 0;
     }
 
@@ -145,11 +128,11 @@ public class DatabaseOperator {
     }
 
 
-    public int delGoods(Goods goods) {
+    public int deleteGoods(Goods goods) {
         for (int i = 0; i < goodsList.size(); i++) {
-            String good_no = goodsList.get(i).getGoodsNumber();// 当前对象商品编号
-            String del_goods_no = goods.getGoodsNumber();// 要删除的商品编号
-            if (good_no.equals(del_goods_no)) {
+            String goodsNumber = goodsList.get(i).getGoodsNumber();// 当前对象商品编号
+            String deletingGoodsNumber = goods.getGoodsNumber();// 要删除的商品编号
+            if (goodsNumber.equals(deletingGoodsNumber)) {
                 goodsList.remove(i);
             }
         }
@@ -229,15 +212,14 @@ public class DatabaseOperator {
         return 0;
         */
 
-
     public int loadAllGoods() {
         //用FileInputStream方式
         File file = new File(goodsFile);
-        BufferedReader reader = null;
+        BufferedReader reader;
         try {
 //                reader = new BufferedReader(new FileReader(file));
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-            String goodsInfo = null;
+            String goodsInfo;
             while ((goodsInfo = reader.readLine()) != null) {
                 String[] arrTmp = goodsInfo.split("[,，]");
                 Goods g = createGoods(arrTmp);
@@ -278,40 +260,39 @@ public class DatabaseOperator {
     }
 
     public int printAllGoods() {
-        for (Goods g : goodsList) {
-            System.out.println(g.toString());
+        for (Goods goods : goodsList) {
+            System.out.println(goods.toString());
         }
         return 0;
     }
 
     public int printAllProvider() {
-        for (Provider p : providerList) {
-            System.out.println(p.toString());
+        for (Provider provider : providerList) {
+            System.out.println(provider.toString());
         }
         return 0;
     }
 
     public int printAllPurchase() {
-        for (Purchase p : purchaseList) {
-            System.out.println(p.toString());
+        for (Purchase purchase : purchaseList) {
+            System.out.println(purchase.toString());
         }
         return 0;
     }
 
     public int printAllSale() {
-        for (Sale s : saleList) {
-            System.out.println(s.toString());
+        for (Sale sale : saleList) {
+            System.out.println(sale.toString());
         }
         return 0;
     }
 
     public int printAllInventory() {
-        for (Inventory i : inventoryList) {
-            System.out.println(i.toString());
+        for (Inventory inventory : inventoryList) {
+            System.out.println(inventory.toString());
         }
         return 0;
     }
-
 
     public List<Inventory> getInventoryList() {
         return inventoryList;
