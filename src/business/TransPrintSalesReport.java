@@ -3,7 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-class TransPrintSalesReport extends TransAbs {
+class TransPrintSalesReport extends AbstractTransaction {
 
     public void printPrompt() {
         System.out.println("打印销售报表");
@@ -14,7 +14,7 @@ class TransPrintSalesReport extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 
     public int process() {
@@ -51,7 +51,7 @@ class TransPrintSalesReport extends TransAbs {
         System.out.println("\t\t\t\t\t\t总销量：" + totalNumber);
         System.out.println("\t\t\t\t\t\t总销售额：" + totalAmount);
         System.out.println("\t\t\t\t\t\t总利润：" + totalProfits);
-        setTransResult("\t\t\t\t\t\t销售报表打印完毕");
+        setTransactionResult("\t\t\t\t\t\t销售报表打印完毕");
         System.out.println("________________________________________________________________");
         return 0;
     }

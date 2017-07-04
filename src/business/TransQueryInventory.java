@@ -2,7 +2,7 @@ package business;
 
 import java.util.List;
 
-class TransQueryInventory extends TransAbs {
+class TransQueryInventory extends AbstractTransaction {
 	private String queryType;
 	private String goodsNumber;// 商品编号
 	private String goodsName;// 商品名称
@@ -17,7 +17,7 @@ class TransQueryInventory extends TransAbs {
 		// 读取查询方式
 		queryType = scan.next();
 		if (queryType == null) {
-			setTransResult("获取查询方式失败");
+			setTransactionResult("获取查询方式失败");
 			return -1;
 		} else if (queryType.equals("0")) {// 全部查询不需要读取剩余的参数
 			return 0;
@@ -26,14 +26,14 @@ class TransQueryInventory extends TransAbs {
 		// 商品编号
 		goodsNumber = scan.next();
 		if (goodsNumber == null) {
-			setTransResult("读取商品编号错误");
+			setTransactionResult("读取商品编号错误");
 			return -1;
 		}
 
 		// 商品名称
 		goodsName = scan.next();
 		if (goodsName == null) {
-			setTransResult("读取商品名称错误");
+			setTransactionResult("读取商品名称错误");
 			return -1;
 		}
 		return 0;
@@ -43,16 +43,16 @@ class TransQueryInventory extends TransAbs {
 		switch (queryType) {
 			case "0": // 全部查询
 				getDatabaseOperator().printAllInventory();
-				setTransResult("查询完成");
+				setTransactionResult("查询完成");
 				return 0;
 			case "1": // 精确查询
 				Inventory inventory = databaseOperator.exactFindInventory(goodsNumber);
 				if (inventory != null) {
 					System.out.println(inventory.toString());
-					setTransResult("精确查询完成");
+					setTransactionResult("精确查询完成");
 					return 0;
 				} else {
-					setTransResult("没有查到相关信息！");
+					setTransactionResult("没有查到相关信息！");
 					return -1;
 				}
 			case "2": // 模糊查询
@@ -62,10 +62,10 @@ class TransQueryInventory extends TransAbs {
 					for (Inventory i : list) {
 						System.out.println(i.toString());
 					}
-					setTransResult("模糊查询完成");
+					setTransactionResult("模糊查询完成");
 					return 0;
 				} else {
-					setTransResult("没有查到相关信息！");
+					setTransactionResult("没有查到相关信息！");
 					return -1;
 				}
 		}
@@ -73,6 +73,6 @@ class TransQueryInventory extends TransAbs {
 	}
 
 	public void printResult() {
-		System.out.println(transResult);
+		System.out.println(transactionResult);
 	}
 }

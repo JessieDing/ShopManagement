@@ -2,7 +2,7 @@ package business;
 
 import java.util.List;
 
-class TransQueryProvider extends TransAbs {
+class TransQueryProvider extends AbstractTransaction {
     private String queryType;// 查询方式
     private String providerNumber;// 供货商编号
     private String providerName;// 供货商名称
@@ -21,7 +21,7 @@ class TransQueryProvider extends TransAbs {
         // 读取查询方式
         queryType = scan.next();
         if (queryType == null) {
-            setTransResult("获取查询方式失败");
+            setTransactionResult("获取查询方式失败");
             return -1;
         } else if (queryType.equals("0")) {// 全部查询不需要读取剩余的参数
             return 0;
@@ -30,13 +30,13 @@ class TransQueryProvider extends TransAbs {
         // 供货商编号
         providerNumber = scan.next();
         if (providerNumber == null) {
-            setTransResult("读取商品编号错误");
+            setTransactionResult("读取商品编号错误");
             return -1;
         }
 
         providerName = scan.next();
         if (providerName == null) {
-            setTransResult("读取商品名称错误");
+            setTransactionResult("读取商品名称错误");
             return -1;
         }
         return 0;
@@ -46,16 +46,16 @@ class TransQueryProvider extends TransAbs {
         switch (queryType) {
             case "0": // 全部查询
                 getDatabaseOperator().printAllProvider();
-                setTransResult("查询完成");
+                setTransactionResult("查询完成");
                 return 0;
             case "1": // 精确查询
                 Provider provider = databaseOperator.exactFindProvider(providerNumber);
                 if (provider != null) {
                     System.out.println(provider.toString());
-                    setTransResult("精确查询完成");
+                    setTransactionResult("精确查询完成");
                     return 0;
                 } else {
-                    setTransResult("没有查到相关信息！");
+                    setTransactionResult("没有查到相关信息！");
                     return -1;
                 }
             case "2": // 模糊查询（目前只能查一个）
@@ -66,7 +66,7 @@ class TransQueryProvider extends TransAbs {
                     }
                     return 0;
                 } else {
-                    setTransResult("没有查到相关信息！");
+                    setTransactionResult("没有查到相关信息！");
                     return -1;
                 }
 
@@ -75,7 +75,7 @@ class TransQueryProvider extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 
     public String getQueryType() {

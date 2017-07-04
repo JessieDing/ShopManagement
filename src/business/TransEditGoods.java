@@ -1,6 +1,6 @@
 package business;
 
-class TransEditGoods extends TransAbs {
+class TransEditGoods extends AbstractTransaction {
     private String goodsNumber;// 商品编号
     private String goodsName;// 商品名称
     private String goodsUnit;// 商品单位
@@ -19,34 +19,34 @@ class TransEditGoods extends TransAbs {
         // 商品编号
         goodsNumber = scan.next();
         if (goodsNumber == null) {
-            setTransResult("读取商品编号错误");
+            setTransactionResult("读取商品编号错误");
             return -1;
         }
 
         // 商品名称
         goodsName = scan.next();
         if (goodsName == null) {
-            setTransResult("读取商品名称错误");
+            setTransactionResult("读取商品名称错误");
             return -1;
         }
 
         // 商品单位
         goodsUnit = scan.next();
         if (goodsUnit == null) {
-            setTransResult("读取商品单位错误");
+            setTransactionResult("读取商品单位错误");
             return -1;
         }
 
         // 商品状态
         goodsStatus = scan.next();
         if (goodsStatus == null) {
-            setTransResult("读取商品状态错误");
+            setTransactionResult("读取商品状态错误");
             return -1;
         }
 
         DataValidate validator = new DataValidate();
         if (!validator.goodsStatusValidate(goodsStatus)) {
-            setTransResult("状态输入不合法");
+            setTransactionResult("状态输入不合法");
             return -1;
         }
 
@@ -58,13 +58,13 @@ class TransEditGoods extends TransAbs {
         goods.setGoodsName(goodsName);
         goods.setGoodsUnit(goodsUnit);
         goods.setGoodsStatus(goodsStatus);
-        setTransResult("修改成功");
+        setTransactionResult("修改成功");
         databaseOperator.editGoodsInfo(databaseOperator.getGoodsFile(), goodsNumber);//修改后写入文件
         return 0;
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 
 }

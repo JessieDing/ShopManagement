@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class TransAddPurchase extends TransAbs {
+class TransAddPurchase extends AbstractTransaction {
     private String goodsNumber;// 商品编号
     private String goodsName;// 商品名称
     private String goodsUnit;// 商品单位
@@ -27,14 +27,14 @@ class TransAddPurchase extends TransAbs {
         // 读取商品编号
         goodsNumber = scan.next();
         if (goodsNumber == null) {
-            setTransResult("获取商品编号错误");
+            setTransactionResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
         goodsName = scan.next();
         if (goodsName == null) {
-            setTransResult("获取商品名称错误");
+            setTransactionResult("获取商品名称错误");
             return -1;
         }
 
@@ -42,14 +42,14 @@ class TransAddPurchase extends TransAbs {
         String count = scan.next();
         goodsCount = Integer.parseInt(count);
         if (goodsCount == 0) {
-            setTransResult("获取采购数量失败");
+            setTransactionResult("获取采购数量失败");
             return -1;
         }
 
         // 读取商品单位
         goodsUnit = scan.next();
         if (goodsUnit == null) {
-            setTransResult("获取商品单位错误");
+            setTransactionResult("获取商品单位错误");
             return -1;
         }
 
@@ -57,7 +57,7 @@ class TransAddPurchase extends TransAbs {
         String price = scan.next();
         goodsPrice = Double.parseDouble(price);
         if (goodsPrice == 0) {
-            setTransResult("获取进货价格失败");
+            setTransactionResult("获取进货价格失败");
             return -1;
         }
 
@@ -76,7 +76,7 @@ class TransAddPurchase extends TransAbs {
         // 读取供货商
         provider = scan.next();
         if (provider == null) {
-            setTransResult("获取供货商失败");
+            setTransactionResult("获取供货商失败");
             return -1;
         }
 
@@ -95,10 +95,10 @@ class TransAddPurchase extends TransAbs {
         addInventory(purchase);// 添加库存(采购之后才有库存)
         if (getDatabaseOperator().insertPurchase(purchase) == 0) {
             databaseOperator.printAllPurchase();
-            setTransResult("采购信息录入成功");
+            setTransactionResult("采购信息录入成功");
             return 0;
         } else {
-            setTransResult("采购信息录入失败");
+            setTransactionResult("采购信息录入失败");
             return -1;
         }
     }
@@ -106,7 +106,7 @@ class TransAddPurchase extends TransAbs {
     private int findGoodsInfo(String no) {
         Goods goods = databaseOperator.exactFindGoods(no);
         if (goods == null) {
-            setTransResult("找不到该商品编号！");
+            setTransactionResult("找不到该商品编号！");
             return -1;
         } else {
             System.out.println("该商品信息如下：");
@@ -129,6 +129,6 @@ class TransAddPurchase extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 }

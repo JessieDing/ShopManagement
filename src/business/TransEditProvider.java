@@ -1,6 +1,6 @@
 package business;
 
-class TransEditProvider extends TransAbs {
+class TransEditProvider extends AbstractTransaction {
     private String providerNumber;// 供货商编号
     private String providerName;// 供货商名称
     private String providerAddress;// 供货商地址
@@ -20,35 +20,35 @@ class TransEditProvider extends TransAbs {
         // 供货商编号
         providerNumber = scan.next();
         if (providerNumber == null) {
-            setTransResult("读取供货商编号错误");
+            setTransactionResult("读取供货商编号错误");
             return -1;
         }
 
         // 供货商名称
         providerName = scan.next();
         if (providerName == null) {
-            setTransResult("读取供货商名称错误");
+            setTransactionResult("读取供货商名称错误");
             return -1;
         }
 
         // 供货商地址
         providerAddress = scan.next();
         if (providerAddress == null) {
-            setTransResult("读取供货商地址错误");
+            setTransactionResult("读取供货商地址错误");
             return -1;
         }
 
         // 供货商电话
         providerTel = scan.next();
         if (providerTel == null) {
-            setTransResult("读取供货商电话错误");
+            setTransactionResult("读取供货商电话错误");
             return -1;
         }
 
         // 供货商状态
         providerStatus = scan.next();
         if (providerStatus == null) {
-            setTransResult("读取供货商状态错误");
+            setTransactionResult("读取供货商状态错误");
             return -1;
         }
         return 0;
@@ -60,13 +60,13 @@ class TransEditProvider extends TransAbs {
         provider.setProviderAddress(providerAddress);
         provider.setProviderTel(providerTel);
         provider.setProviderStatus(providerStatus);
-        setTransResult("修改成功");
+        setTransactionResult("修改成功");
 
         return 0;
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 
     public String getProviderNumber() {

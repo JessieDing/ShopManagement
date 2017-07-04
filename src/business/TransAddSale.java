@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class TransAddSale extends TransAbs {
+class TransAddSale extends AbstractTransaction {
     private String goodsNumber;// 商品编号
     private String goodsName;// 商品名称
     private int saleCount;// 销售数量
@@ -14,7 +14,7 @@ class TransAddSale extends TransAbs {
     private int findGoodsInfo(String no) {
         Inventory inventory = databaseOperator.exactFindInventory(no);
         if (inventory == null) {
-            setTransResult("库存记录中找不到该商品编号！");
+            setTransactionResult("库存记录中找不到该商品编号！");
             return -1;
         } else {
             System.out.println("该商品信息如下：");
@@ -39,14 +39,14 @@ class TransAddSale extends TransAbs {
     public int getInput() {
         goodsNumber = scan.next();
         if (goodsNumber == null) {
-            setTransResult("获取商品编号错误");
+            setTransactionResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
         goodsName = scan.next();
         if (goodsName == null) {
-            setTransResult("获取商品名称错误");
+            setTransactionResult("获取商品名称错误");
             return -1;
         }
 
@@ -55,19 +55,19 @@ class TransAddSale extends TransAbs {
         saleCount = Integer.parseInt(count);
         Inventory inventory = databaseOperator.exactFindInventory(goodsNumber);
         if (saleCount > inventory.getGoodsCount()) {
-            setTransResult("库存不足！");
+            setTransactionResult("库存不足！");
             return -1;
         }
 
         String goodsUnit = scan.next();
         if (goodsUnit == null) {
-            setTransResult("获取商品单位错误");
+            setTransactionResult("获取商品单位错误");
             return -1;
         }
 
         salePrice = Double.parseDouble(scan.next());
         if (salePrice < inventory.getGoodsPrice()) {
-            setTransResult("输入错误，售价小于进价！");
+            setTransactionResult("输入错误，售价小于进价！");
             return -1;
         }
 
@@ -99,10 +99,10 @@ class TransAddSale extends TransAbs {
         deleteInventory(sale);//从库存中删除
         if (getDatabaseOperator().insertSale(sale) == 0) {
             getDatabaseOperator().printAllSale();
-            setTransResult("销售信息录入成功");
+            setTransactionResult("销售信息录入成功");
             return 0;
         } else {
-            setTransResult("销售信息录入失败");
+            setTransactionResult("销售信息录入失败");
             return -1;
         }
 
@@ -120,6 +120,6 @@ class TransAddSale extends TransAbs {
     }
 
     public void printResult() {
-        System.out.println(transResult);
+        System.out.println(transactionResult);
     }
 }
