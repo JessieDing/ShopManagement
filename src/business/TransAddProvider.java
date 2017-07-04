@@ -1,10 +1,10 @@
 package business;
 
-public class TransAddPrvd extends TransAbs {
-	private String provider_no;// 供货商编号
-	private String provider_name;// 供货商名称
-	private String provider_addr;// 供货商地址
-	private String provider_tel;// 供货商电话
+class TransAddProvider extends TransAbs {
+	private String providerNumber;// 供货商编号
+	private String providerName;// 供货商名称
+	private String providerAddress;// 供货商地址
+	private String providerTel;// 供货商电话
 
 	public void printPrompt() {
 		System.out.println("添加供货商|请输入以下信息：");
@@ -13,61 +13,61 @@ public class TransAddPrvd extends TransAbs {
 
 	public int getInput() {
 		// 读取供货商编号
-		provider_no = scan.next();
-		if (provider_no == null) {
+		providerNumber = scan.next();
+		if (providerNumber == null) {
 			setTransResult("获取供应商编号错误");
 			return -1;
 		}
 
-		provider_name = scan.next();
-		if (provider_name == null) {
+		providerName = scan.next();
+		if (providerName == null) {
 			setTransResult("获取供应商名称错误");
 			return -1;
 		}
 
-		provider_addr = scan.next();
-		if (provider_addr == null) {
+		providerAddress = scan.next();
+		if (providerAddress == null) {
 			setTransResult("获取供应商地址错误");
 			return -1;
 		}
 
-		provider_tel = scan.next();
-		if (provider_tel == null) {
+		providerTel = scan.next();
+		if (providerTel == null) {
 			setTransResult("获取供应商电话错误");
 			return -1;
 		}
 
 		// 判断供应商编号是否重复
-		if (databaseOperator.exactFindProvider(provider_no) != null) {
+		if (databaseOperator.exactFindProvider(providerNumber) != null) {
 			setTransResult("供应商编号已存在！");
 			return -1;
 		}
 
 		DataValidate validator = new DataValidate();
-		if (!validator.providerNoValidate(provider_no)) {
+		if (!validator.providerNoValidate(providerNumber)) {
 			setTransResult("供应商编号不合法");
 			return -1;
 		}
 
-		if (!validator.telNoValidate(provider_tel)) {
+		if (!validator.telNoValidate(providerTel)) {
 			setTransResult("电话号码不合法");
 			return -1;
 		}
 
-		System.out.print("providerNumber[" + provider_no + "],");
-		System.out.print("providerName[" + provider_name + "],");
-		System.out.print("providerAddress[" + provider_addr + "]");
-		System.out.print("providerTel[" + provider_tel + "]");
+		System.out.print("providerNumber[" + providerNumber + "],");
+		System.out.print("providerName[" + providerName + "],");
+		System.out.print("providerAddress[" + providerAddress + "]");
+		System.out.print("providerTel[" + providerTel + "]");
 		System.out.println();
 		return 0;
 	}
 
 	public int doTrans() {
 		Provider p = new Provider();
-		p.setProviderNumber(provider_no);
-		p.setProviderName(provider_name);
-		p.setProviderAddress(provider_addr);
-		p.setProviderTel(provider_tel);
+		p.setProviderNumber(providerNumber);
+		p.setProviderName(providerName);
+		p.setProviderAddress(providerAddress);
+		p.setProviderTel(providerTel);
 		if (getDatabaseOperator().insertProvider(p) == 0) {
 			setTransResult("新增供货商成功");
 			return 0;

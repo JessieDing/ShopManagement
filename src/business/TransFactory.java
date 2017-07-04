@@ -15,7 +15,7 @@ public class TransFactory {
                 trans = new TransQueryGoods();
                 break;
             case "4": // 新增供货商
-                trans = new TransAddPrvd();
+                trans = new TransAddProvider();
                 break;
             case "5": // 修改供货商
                 trans = new TransEditProvider();
