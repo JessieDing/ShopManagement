@@ -1,10 +1,10 @@
 package business;
 
 public class TransAddPrvd extends TransAbs {
-	String provider_no;// 供货商编号
-	String provider_name;// 供货商名称
-	String provider_addr;// 供货商地址
-	String provider_tel;// 供货商电话
+	private String provider_no;// 供货商编号
+	private String provider_name;// 供货商名称
+	private String provider_addr;// 供货商地址
+	private String provider_tel;// 供货商电话
 
 	public void printPrompt() {
 		System.out.println("添加供货商|请输入以下信息：");

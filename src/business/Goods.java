@@ -73,9 +73,7 @@ public class Goods {
     }
 
     public void setQualityDays(int qualityDays) {
-
         this.qualityDays = qualityDays;
-
     }
 
     @Override

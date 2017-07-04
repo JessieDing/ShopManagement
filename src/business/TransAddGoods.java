@@ -1,72 +1,71 @@
 package business;
 
 public class TransAddGoods extends TransAbs {
-    String goods_no;// 商品编号
-    String goods_name;// 商品名称
-    String goods_unit;// 单位
-    int quality_days;//保存天数
+    private String goodsNumber;// 商品编号
+    private String goodsName;// 商品名称
+    private String goodsUnit;// 单位
+    private int qualityDays;//保存天数
 
     public void printPrompt() {
         System.out.println("添加商品|请输入以下信息：");
-        System.out.println("@goods_no @goods_name @goods_unit @quality_days");
+        System.out.println("@goodsNumber @goodsName @goodsUnit @qualityDays");
     }
 
     public int getInput() {
         // 读取商品编号
-        goods_no = scan.next();
-        if (goods_no == null) {
+        goodsNumber = scan.next();
+        if (goodsNumber == null) {
             setTransResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
-        goods_name = scan.next();
-        if (goods_name == null) {
+        goodsName = scan.next();
+        if (goodsName == null) {
             setTransResult("获取商品名称错误");
             return -1;
         }
 
         // 读取商品单位
-        goods_unit = scan.next();
-        if (goods_unit == null) {
+        goodsUnit = scan.next();
+        if (goodsUnit == null) {
             setTransResult("获取商品单位错误");
             return -1;
         }
 
         // 判断商品编号是否重复
-        if (databaseOperator.exactFindGoods(goods_no) != null) {
+        if (databaseOperator.exactFindGoods(goodsNumber) != null) {
             setTransResult("商品编号已存在");
             return -1;
         }
 
         //读取保质期
-        quality_days = scan.nextInt();
-        if (quality_days == 0) {
+        qualityDays = scan.nextInt();
+        if (qualityDays == 0) {
             setTransResult("获取保质期错误");
             return -1;
         }
 
-
         DataValidate validator = new DataValidate();
-        if (!validator.goodsNumberValidate(goods_no)) {
+        if (!validator.goodsNumberValidate(goodsNumber)) {
             setTransResult("商品编号不合法");
             return -1;
         }
 
-        System.out.print("goods_no[" + goods_no + "],");
-        System.out.print("goods_name[" + goods_name + "],");
-        System.out.print("goods_unit[" + goods_unit + "]");
+        System.out.print("goodsNumber[" + goodsNumber + "],");
+        System.out.print("goodsName[" + goodsName + "],");
+        System.out.print("goodsUnit[" + goodsUnit + "]");
         System.out.println();
         return 0;
     }
 
     public int doTrans() {
         Goods g = new Goods();
-        g.setGoodsNumber(goods_no);// 把用户输入的商品编号赋值给Goods对象
-        g.setGoodsName(goods_name);// 赋值商品名称
-        g.setGoodsUnit(goods_unit);// 赋值商品单位
+        g.setGoodsNumber(goodsNumber);// 把用户输入的商品编号赋值给Goods对象
+        g.setGoodsName(goodsName);// 赋值商品名称
+        g.setGoodsUnit(goodsUnit);// 赋值商品单位
         g.setGoodsStatus("0");// 新增商品，默认状态为0有效
-        g.setQualityDays(quality_days);
+        g.setQualityDays(qualityDays);
         if (getDatabaseOperator().insertGoods(g) == 0) {
             setTransResult("新增商品成功");
             databaseOperator.writeGoodsInfo(databaseOperator.getGoodsFile(), g.toFileString());//System.getProperty("line.separator")

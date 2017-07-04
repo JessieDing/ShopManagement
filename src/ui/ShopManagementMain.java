@@ -28,7 +28,7 @@ public class ShopManagementMain {
                 break;
             }
 
-            TransInterface trans = null;
+            TransInterface trans;
             TransFactory tFactory = new TransFactory();
             trans = tFactory.createTrans(strTrans);
             if (trans != null) {
