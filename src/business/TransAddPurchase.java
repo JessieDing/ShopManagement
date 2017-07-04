@@ -4,75 +4,59 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TransAddPurchase extends TransAbs {
-    String goods_no;// 商品编号
-    String goods_name;// 商品名称
-    String goods_unit;// 商品单位
-    int goods_count;// 采购数量
-    double goods_price;// 进货价格
-    Date purchase_date;// 进货日期
-    String prvd;// 供货商
-
-    public int findGoodsInfo(String no) {
-        Goods goods = databaseOperator.exactFindGoods(no);
-        if (goods == null) {
-            setTransResult("找不到该商品编号！");
-            return -1;
-        } else {
-            System.out.println("该商品信息如下：");
-            System.out.print("goods_no[" + goods.getGoodsNumber() + "],");
-            System.out.print("goods_name[" + goods.getGoodsName() + "],");
-            System.out.print("goods_unit[" + goods.getGoodsUnit() + "]");
-            System.out.println();
-            return 0;
-        }
-    }
+class TransAddPurchase extends TransAbs {
+    private String goodsNumber;// 商品编号
+    private String goodsName;// 商品名称
+    private String goodsUnit;// 商品单位
+    private int goodsCount;// 采购数量
+    private double goodsPrice;// 进货价格
+    private Date purchaseDate;// 进货日期
+    private String provider;// 供货商
 
     public void printPrompt() {
         System.out.println("输入商品编号：");
-        goods_no = scan.nextLine();
-        if (findGoodsInfo(goods_no) == 0) {
+        goodsNumber = scan.nextLine();
+        if (findGoodsInfo(goodsNumber) == 0) {
             System.out.println("采购录入|请输入以下信息：");
             System.out.println(
-                    "@goods_no @goods_name @goods_count @goods_unit @goods_price @purchase_date(yyyy-mm-dd) @prvd");
+                    "@goodsNumber @goodsName @goodsCount @goodsUnit @goodsPrice @purchaseDate(yyyy-mm-dd) @provider");
         }
     }
 
     public int getInput() {
-
         // 读取商品编号
-        goods_no = scan.next();
-        if (goods_no == null) {
+        goodsNumber = scan.next();
+        if (goodsNumber == null) {
             setTransResult("获取商品编号错误");
             return -1;
         }
 
         // 读取商品名称
-        goods_name = scan.next();
-        if (goods_name == null) {
+        goodsName = scan.next();
+        if (goodsName == null) {
             setTransResult("获取商品名称错误");
             return -1;
         }
 
         // 读取采购数量
         String count = scan.next();
-        goods_count = Integer.parseInt(count);
-        if (goods_count == 0) {
+        goodsCount = Integer.parseInt(count);
+        if (goodsCount == 0) {
             setTransResult("获取采购数量失败");
             return -1;
         }
 
         // 读取商品单位
-        goods_unit = scan.next();
-        if (goods_unit == null) {
+        goodsUnit = scan.next();
+        if (goodsUnit == null) {
             setTransResult("获取商品单位错误");
             return -1;
         }
 
         // 读取进货价格
         String price = scan.next();
-        goods_price = Double.parseDouble(price);
-        if (goods_price == 0) {
+        goodsPrice = Double.parseDouble(price);
+        if (goodsPrice == 0) {
             setTransResult("获取进货价格失败");
             return -1;
         }
@@ -81,7 +65,7 @@ public class TransAddPurchase extends TransAbs {
         if (scan.hasNext()) {
             DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                purchase_date = date.parse(scan.next());
+                purchaseDate = date.parse(scan.next());
             } catch (Exception e) {
             }
         } else {
@@ -90,8 +74,8 @@ public class TransAddPurchase extends TransAbs {
         }
 
         // 读取供货商
-        prvd = scan.next();
-        if (prvd == null) {
+        provider = scan.next();
+        if (provider == null) {
             setTransResult("获取供货商失败");
             return -1;
         }
@@ -101,13 +85,13 @@ public class TransAddPurchase extends TransAbs {
 
     public int doTrans() {
         Purchase purchase = new Purchase();
-        purchase.setGoodsNumber(goods_no);
-        purchase.setGoodsName(goods_name);
-        purchase.setPurchaseAmount(goods_count);
-        purchase.setGoodsUnit(goods_unit);
-        purchase.setPurchasePrice(goods_price);
-        purchase.setPurchaseDate(purchase_date);
-        purchase.setProvider(prvd);
+        purchase.setGoodsNumber(goodsNumber);
+        purchase.setGoodsName(goodsName);
+        purchase.setPurchaseAmount(goodsCount);
+        purchase.setGoodsUnit(goodsUnit);
+        purchase.setPurchasePrice(goodsPrice);
+        purchase.setPurchaseDate(purchaseDate);
+        purchase.setProvider(provider);
         addInventory(purchase);// 添加库存(采购之后才有库存)
         if (getDatabaseOperator().insertPurchase(purchase) == 0) {
             databaseOperator.printAllPurchase();
@@ -116,6 +100,21 @@ public class TransAddPurchase extends TransAbs {
         } else {
             setTransResult("采购信息录入失败");
             return -1;
+        }
+    }
+
+    private int findGoodsInfo(String no) {
+        Goods goods = databaseOperator.exactFindGoods(no);
+        if (goods == null) {
+            setTransResult("找不到该商品编号！");
+            return -1;
+        } else {
+            System.out.println("该商品信息如下：");
+            System.out.print("goodsNumber[" + goods.getGoodsNumber() + "],");
+            System.out.print("goodsName[" + goods.getGoodsName() + "],");
+            System.out.print("goodsUnit[" + goods.getGoodsUnit() + "]");
+            System.out.println();
+            return 0;
         }
     }
 
