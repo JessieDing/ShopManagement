@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class ShopManagementMain {
+public class ShopManagementApplication {
 
     public static void main(String[] args) throws ParseException {
         // 1.首先打印菜单主界面
