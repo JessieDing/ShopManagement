@@ -6,7 +6,7 @@ public class TransFactory {
         Transaction trans = null;
         switch (strTrans) {
             case "1": // 添加商品信息交易
-                trans = new TransAddGoods();
+                trans = new AddGoodsTransaction();
                 break;
             case "2": // 修改商品信息
                 trans = new TransEditGoods();

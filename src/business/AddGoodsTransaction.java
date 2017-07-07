@@ -1,6 +1,6 @@
 package business;
 
-public class TransAddGoods extends AbstractTransaction {
+public class AddGoodsTransaction extends AbstractTransaction {
     private String goodsNumber;// 商品编号
     private String goodsName;// 商品名称
     private String goodsUnit;// 单位
